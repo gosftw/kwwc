@@ -1,0 +1,13 @@
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar dependencias y carpetas de desarrollo
+node_modules/
+dist/
+.vscode/
+.idea/
+
+# Ignorar archivos de configuración local
+.env
+.env.local

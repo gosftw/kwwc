@@ -1,0 +1,17 @@
+{
+    "name": "kings-league-kwcc",
+    "version": "1.0.0",
+    "description": "Dynamic tournament bracket for Kings League KWCC",
+    "main": "index.html",
+    "scripts": {
+      "build": "mkdir -p dist && cp -r index.html css js img dist/",
+      "start": "npx http-server . -o -c-1",
+      "deploy": "npm run build && npx http-server dist -o",
+      "test": "echo \"No tests available\""
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "http-server": "^14.1.1"
+    }
+  }

@@ -25,69 +25,79 @@
         <h1>KL KWCC Tournament Bracket Simulator</h1>
         
         <!-- Reset button and mobile navigation will be added here via JavaScript -->
+        <div class="tournament-navigation">
+            <button id="scrollLeft" class="scroll-arrow left">&larr;</button>
+            <div id="tournamentContainer" class="tournament-container">
         
-        <div class="tournament-container">
-            <div class="round-container" id="round1">
-                <h2 class="round-title">ROUND 1</h2>
-                <div class="matches-container">
-                    <!-- Round 1 matches will be generated here -->
-                </div>
-            </div>
+            <!-- <div class="tournament-container"> -->
+
             
-            <div class="round-container" id="round2">
-                <h2 class="round-title">ROUND 2</h2>
-                <div class="winners-bracket">
-                    <h3 class="bracket-title">WINNERS BRACKET</h3>
-                    <div class="matches-container winners">
-                        <!-- Round 2 winner matches will be generated here -->
+                
+
+
+                <div class="round-container" id="round1">
+                    <h2 class="round-title">ROUND 1</h2>
+                    <div class="matches-container">
+                        <!-- Round 1 matches will be generated here -->
                     </div>
                 </div>
-                <div class="losers-bracket">
-                    <h3 class="bracket-title">LOSERS BRACKET</h3>
-                    <div class="matches-container losers">
-                        <!-- Round 2 loser matches will be generated here -->
+                
+                <div class="round-container" id="round2">
+                    <h2 class="round-title">ROUND 2</h2>
+                    <div class="winners-bracket">
+                        <h3 class="bracket-title">WINNERS BRACKET</h3>
+                        <div class="matches-container winners">
+                            <!-- Round 2 winner matches will be generated here -->
+                        </div>
+                    </div>
+                    <div class="losers-bracket">
+                        <h3 class="bracket-title">LOSERS BRACKET</h3>
+                        <div class="matches-container losers">
+                            <!-- Round 2 loser matches will be generated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="round-container" id="lastChance">
+                    <h2 class="round-title">LAST CHANCE</h2>
+                    <div class="matches-container">
+                        <!-- Last chance matches will be generated here -->
+                    </div>
+                </div>
+                
+                <div class="round-container" id="round16">
+                    <h2 class="round-title">ROUND OF 16</h2>
+                    <div class="matches-container">
+                        <!-- Round of 16 matches will be generated here -->
+                    </div>
+                </div>
+
+                <div class="round-container" id="quarterFinals">
+                    <h2 class="round-title">QUARTER FINALS</h2>
+                    <div class="matches-container">
+                        <!-- Quarter finals matches will be generated here -->
+                    </div>
+                </div>
+                
+                <div class="round-container" id="semiFinals">
+                    <h2 class="round-title">SEMI FINALS</h2>
+                    <div class="matches-container">
+                        <!-- Semi finals matches will be generated here -->
+                    </div>
+                </div>
+                
+                <div class="round-container" id="final">
+                    <h2 class="round-title">FINAL</h2>
+                    <div class="matches-container">
+                        <!-- Final match will be generated here -->
+                    </div>
+                    <div class="trophy">
+                        <img src="img/kwc-trophy.svg" alt="KWCC Trophy">
+                        <div class="champion-name" id="championName"></div>
                     </div>
                 </div>
             </div>
-
-            <div class="round-container" id="lastChance">
-                <h2 class="round-title">LAST CHANCE</h2>
-                <div class="matches-container">
-                    <!-- Last chance matches will be generated here -->
-                </div>
-            </div>
-            
-            <div class="round-container" id="round16">
-                <h2 class="round-title">ROUND OF 16</h2>
-                <div class="matches-container">
-                    <!-- Round of 16 matches will be generated here -->
-                </div>
-            </div>
-
-            <div class="round-container" id="quarterFinals">
-                <h2 class="round-title">QUARTER FINALS</h2>
-                <div class="matches-container">
-                    <!-- Quarter finals matches will be generated here -->
-                </div>
-            </div>
-            
-            <div class="round-container" id="semiFinals">
-                <h2 class="round-title">SEMI FINALS</h2>
-                <div class="matches-container">
-                    <!-- Semi finals matches will be generated here -->
-                </div>
-            </div>
-            
-            <div class="round-container" id="final">
-                <h2 class="round-title">FINAL</h2>
-                <div class="matches-container">
-                    <!-- Final match will be generated here -->
-                </div>
-                <div class="trophy">
-                    <img src="img/kwc-trophy.svg" alt="KWCC Trophy">
-                    <div class="champion-name" id="championName"></div>
-                </div>
-            </div>
+            <button id="scrollRight" class="scroll-arrow right">&rarr;</button>
         </div>
         
         <footer class="footer">

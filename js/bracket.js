@@ -54,11 +54,20 @@ function createMatchElement(match) {
     const matchElement = document.createElement('div');
     matchElement.className = 'match-card';
     matchElement.dataset.matchId = match.id;
-    
+
     // Match ID indicator
     const matchIdElement = document.createElement('div');
     matchIdElement.className = 'match-id';
-    matchIdElement.textContent = match.id;
+    
+    matchIdElement.textContent = getMatchIdWithCountdown(match);
+
+    // Add tooltip with local time
+    if (match.matchTime) {
+        matchIdElement.title = formatLocalMatchTime(match.matchTime);
+        matchIdElement.setAttribute("data-match-time", match.matchTime);
+        matchIdElement.classList.add("has-tooltip");
+    }
+
     matchElement.appendChild(matchIdElement);
     
     const matchInfo = document.createElement('div');
@@ -1058,6 +1067,109 @@ function resetLaterRounds() {
     // Save the reset state
     saveState();
 }
+
+// Helper function to calculate countdown
+function getCountdown(matchTimeString) {
+    if (!matchTimeString) return "";
+    
+    const now = new Date();
+    const matchTime = new Date(matchTimeString);
+    const diff = matchTime - now;
+    
+    // If the match is in the past or happening now
+    if (diff <= 0) {
+        return "LIVE";
+    }
+    
+    // Calculate days, hours, minutes
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    
+    // Format the countdown string
+    let countdownStr = "";
+    if (days > 0) countdownStr += `${days}d `;
+    if (hours > 0 || days > 0) countdownStr += `${hours}h `;
+    countdownStr += `${minutes}m`;
+    
+    return countdownStr;
+}
+
+// Helper function to format match time to local time
+function formatLocalMatchTime(matchTimeString) {
+    if (!matchTimeString) return "";
+    
+    const matchTime = new Date(matchTimeString);
+    const options = { 
+        weekday: 'short', 
+        month: 'short', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit',
+        timeZoneName: 'short'
+    };
+    
+    return matchTime.toLocaleString(undefined, options);
+}
+
+// Helper function to get match ID with countdown
+function getMatchIdWithCountdown(match) {
+    const countdown = getCountdown(match.matchTime);
+    return countdown ? `${match.id} - ${countdown}` : match.id;
+}
+
+// Function to update countdown timers (call this every minute)
+function updateCountdowns() {
+    const matchElements = document.querySelectorAll("[data-match-time]");
+    
+    matchElements.forEach(element => {
+        const matchTime = element.getAttribute("data-match-time");
+        const matchId = element.textContent.split(" - ")[0]; // Extract match ID
+        element.textContent = `${matchId} - ${getCountdown(matchTime)}`;
+    });
+}
+
+// Set up interval to update countdowns every minute
+setInterval(updateCountdowns, 60000);
+
+
+
+// Add after your existing tournament code
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('tournamentContainer');
+    const leftBtn = document.getElementById('scrollLeft');
+    const rightBtn = document.getElementById('scrollRight');
+    
+    // The width to scroll by (typically the width of one round)
+    const scrollAmount = 325;
+    
+    // Update button states initially and when scrolling
+    function updateButtonStates() {
+      leftBtn.classList.toggle('disabled', container.scrollLeft <= 0);
+      rightBtn.classList.toggle('disabled', 
+        container.scrollLeft + container.clientWidth >= container.scrollWidth);
+    }
+    
+    // Add click handlers for the buttons
+    leftBtn.addEventListener('click', function() {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      setTimeout(updateButtonStates, 500); // After scroll animation
+    });
+    
+    rightBtn.addEventListener('click', function() {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      setTimeout(updateButtonStates, 500); // After scroll animation
+    });
+    
+    // Update on scroll
+    container.addEventListener('scroll', updateButtonStates);
+    
+    // Initial button state update
+    updateButtonStates();
+    
+    // Handle window resize
+    window.addEventListener('resize', updateButtonStates);
+});
 
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {

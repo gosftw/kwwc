@@ -175,24 +175,24 @@ const teams = {
 // Initial matches structure for Round 1
 const initialMatches = [
     // Round 1 - Left Side
-    { id: "A", team1: "DMG", team2: "ZAY", round: 1, match: 1 },
-    { id: "B", team1: "PRS", team2: "LCA", round: 1, match: 2 },
-    { id: "C", team1: "GFC", team2: "ULT", round: 1, match: 3 },
-    { id: "D", team1: "POR", team2: "MI7", round: 1, match: 4 },
-    { id: "E", team1: "BMR", team2: "U3D", round: 1, match: 5 },
-    { id: "F", team1: "GDC", team2: "ERA", round: 1, match: 6 },
-    { id: "G", team1: "GR7", team2: "KRS", round: 1, match: 7 },
-    { id: "H", team1: "ZTA", team2: "OUN", round: 1, match: 8 },
+    { id: "A", team1: "DMG", team2: "ZAY", round: 1, match: 1, matchTime: "2025-06-01T16:00:00+02:00" },
+    { id: "B", team1: "PRS", team2: "LCA", round: 1, match: 2, matchTime: "2025-06-02T22:00:00+02:00" },
+    { id: "C", team1: "GFC", team2: "ULT", round: 1, match: 3, matchTime: "2025-06-01T20:00:00+02:00" },
+    { id: "D", team1: "POR", team2: "MI7", round: 1, match: 4, matchTime: "2025-06-01T22:00:00+02:00" },
+    { id: "E", team1: "BMR", team2: "U3D", round: 1, match: 5, matchTime: "2025-06-02T20:00:00+02:00" },
+    { id: "F", team1: "GDC", team2: "ERA", round: 1, match: 6, matchTime: "2025-06-01T19:00:00+02:00" },
+    { id: "G", team1: "GR7", team2: "KRS", round: 1, match: 7, matchTime: "2025-06-03T20:00:00+02:00" },
+    { id: "H", team1: "ZTA", team2: "OUN", round: 1, match: 8, matchTime: "2025-06-01T17:00:00+02:00" },
     
-    // Round 1 - Right Side
-    { id: "I", team1: "SXB", team2: "JFC", round: 1, match: 9 },
-    { id: "J", team1: "FUR", team2: "KNS", round: 1, match: 10 },
-    { id: "K", team1: "TFC", team2: "TRM", round: 1, match: 11 },
-    { id: "L", team1: "XBU", team2: "CHA", round: 1, match: 12 },
-    { id: "M", team1: "FLX", team2: "FLC", round: 1, match: 13 },
-    { id: "N", team1: "ULC", team2: "PAS", round: 1, match: 14 },
-    { id: "O", team1: "DDL", team2: "JXZ", round: 1, match: 15 },
-    { id: "P", team1: "F2R", team2: "MUR", round: 1, match: 16 }
+    // Round 1 - Right Side (add similar matchTime values for all matches)
+    { id: "I", team1: "SXB", team2: "JFC", round: 1, match: 9, matchTime: "2025-06-02T21:00:00+02:00" },
+    { id: "J", team1: "FUR", team2: "KNS", round: 1, match: 10, matchTime: "2025-06-01T21:00:00+02:00" },
+    { id: "K", team1: "TFC", team2: "TRM", round: 1, match: 11, matchTime: "2025-06-03T19:00:00+02:00" },
+    { id: "L", team1: "XBU", team2: "CHA", round: 1, match: 12, matchTime: "2025-06-03T21:00:00+02:00" },
+    { id: "M", team1: "FLX", team2: "FLC", round: 1, match: 13, matchTime: "2025-06-02T19:00:00+02:00" },
+    { id: "N", team1: "ULC", team2: "PAS", round: 1, match: 14, matchTime: "2025-06-01T18:00:00+02:00" },
+    { id: "O", team1: "DDL", team2: "JXZ", round: 1, match: 15, matchTime: "2025-06-03T22:00:00+02:00" },
+    { id: "P", team1: "F2R", team2: "MUR", round: 1, match: 16, matchTime: "2025-06-01T15:00:00+02:00" }
 ];
 
 // Round 2 structure - Winners bracket

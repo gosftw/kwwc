@@ -440,3 +440,41 @@ h1 {
         background-color: var(--red);
     }
 }
+
+/* Shuffle buttons styling */
+.shuffle-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.shuffle-button {
+    padding: 8px 15px;
+    background-color: rgba(126, 9, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.shuffle-button:hover {
+    background-color: rgba(126, 9, 0, 0.8);
+}
+
+/* Drag and drop styling */
+.team[draggable="true"] {
+    cursor: grab;
+    transition: all 0.2s;
+}
+
+.team.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.team.drag-over {
+    border: 2px dashed #db3450;
+    border: 2px dashed rgba(126, 9, 0, 0.8);
+}

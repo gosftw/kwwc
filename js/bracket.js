@@ -177,6 +177,10 @@ function selectWinner(teamElement) {
             winner: teamId
         };
         
+
+        console.log("Stored Last Chance result:", matchId, teamId);
+        console.log("All Last Chance results:", matchResults.lastChance);
+        
         // Display champion
         displayChampion(teamId);
     }
@@ -275,8 +279,12 @@ function updateLastChance() {
 // Update Round of 16 matches
 function updateRound16() {
     round16Structure.forEach(match => {
+        
+
         const advancer1Result = matchResults.round2Winners[match.advancer1];
-        const advancer2Result = matchResults.lastChance[`LC${match.advancer2}`];
+        // Fix: Check if advancer2 already has LC prefix
+        const lcKey = match.advancer2.startsWith('LC') ? match.advancer2 : `LC${match.advancer2}`;
+        const advancer2Result = matchResults.lastChance[lcKey];
         
         // Update the match even if only one team is known
         if (advancer1Result || advancer2Result) {
@@ -346,20 +354,33 @@ function updateSemiFinals() {
 
 // Update Final match
 function updateFinal() {
+
+    
+    console.log("Updating Round of 16");
+    console.log("Last Chance Results:", matchResults.final);
     finalStructure.forEach(match => {
+        console.log("Processing match:", match.id);
         const winner1Result = matchResults.semiFinals[match.winner1];
         const winner2Result = matchResults.semiFinals[match.winner2];
+
+        
+        console.log("First finalist:", winner1Result);
+        console.log("2nd finalist:", winner2Result);
         
         // Update the match even if only one winner is known
         if (winner1Result || winner2Result) {
             // Update team1 if winner1 is known
             if (winner1Result) {
                 match.team1 = winner1Result.winner;
+                console.log("Setting team1 to:", winner1Result.winner);
             }
             
             // Update team2 if winner2 is known
             if (winner2Result) {
                 match.team2 = winner2Result.winner;
+                console.log("Setting team2 to:", winner2Result.winner);
+            } else {
+                console.log("No Final result found");
             }
             
             // Find and update the corresponding match card
@@ -376,6 +397,16 @@ function updateMatchCard(match, bracketType = null) {
         selector = `#round2 .winners-bracket ${selector}`;
     } else if (bracketType === 'losers') {
         selector = `#round2 .losers-bracket ${selector}`;
+    } else if (match.id.startsWith('LC')) {
+        selector = `#lastChance ${selector}`;
+    } else if (match.id.startsWith('R16')) {
+        selector = `#round16 ${selector}`;
+    } else if (match.id.startsWith('QF')) {
+        selector = `#quarterFinals ${selector}`;
+    } else if (match.id.startsWith('SF')) {
+        selector = `#semiFinals ${selector}`;
+    } else if (match.id === 'F') {
+        selector = `#final ${selector}`;
     } else if (bracketType) {
         selector = `.${bracketType} ${selector}`;
     }
@@ -794,12 +825,276 @@ function fixBrokenImages() {
     });
 }
 
+// Randomly shuffle teams for Round of 16
+function shuffleAdvancer1Teams() {
+    // Get all unique advancer1 teams from round16Structure
+    const advancer1Teams = round16Structure.map(match => match.advancer1);
+    const shuffledTeams = [...advancer1Teams];
+    
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffledTeams.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledTeams[i], shuffledTeams[j]] = [shuffledTeams[j], shuffledTeams[i]];
+    }
+    
+    // Assign shuffled teams back to structure
+    round16Structure.forEach((match, index) => {
+        match.advancer1 = shuffledTeams[index];
+    });
+    
+    // Update the UI
+    updateRound16();
+}
+
+function shuffleAdvancer2Teams() {
+    // Get all unique advancer2 teams from round16Structure
+    const advancer2Teams = round16Structure.map(match => match.advancer2);
+    const shuffledTeams = [...advancer2Teams];
+    
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffledTeams.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledTeams[i], shuffledTeams[j]] = [shuffledTeams[j], shuffledTeams[i]];
+    }
+    
+    // Assign shuffled teams back to structure
+    round16Structure.forEach((match, index) => {
+        match.advancer2 = shuffledTeams[index];
+    });
+    
+    // Update the UI
+    updateRound16();
+}
+
+// Setup drag and drop functionality for Round of 16
+// Setup drag and drop functionality for Round of 16
+// Setup drag and drop functionality for Round of 16
+function setupRound16DragDrop() {
+    console.log("Setting up drag and drop for Round of 16");
+    const round16Matches = document.querySelectorAll('#round16 .match-card');
+    
+    if (round16Matches.length === 0) {
+        console.error("No Round of 16 matches found in the DOM");
+        return;
+    }
+    
+    // Add CSS for drag and drop visuals
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        .team[draggable="true"] { cursor: grab; }
+        .team.dragging { opacity: 0.5; background-color: #f0f0f0; }
+        .team.drag-over { border: 2px dashed #3498db; }
+    `;
+    document.head.appendChild(styleElement);
+    
+    round16Matches.forEach(matchCard => {
+        const teams = matchCard.querySelectorAll('.team');
+        
+        teams.forEach(team => {
+            // Set draggable attribute
+            team.setAttribute('draggable', true);
+            
+            // Add event listeners directly (don't clone)
+            team.addEventListener('dragstart', function(e) {
+                console.log("Drag started on:", matchCard.dataset.matchId, this.dataset.teamId);
+                e.dataTransfer.setData('text/plain', JSON.stringify({
+                    matchId: matchCard.dataset.matchId,
+                    teamId: this.dataset.teamId,
+                    isTeam1: Array.from(teams).indexOf(this) === 0
+                }));
+                this.classList.add('dragging');
+            });
+            
+            team.addEventListener('dragend', function() {
+                this.classList.remove('dragging');
+            });
+            
+            team.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('drag-over');
+            });
+            
+            team.addEventListener('dragleave', function() {
+                this.classList.remove('drag-over');
+            });
+            
+            team.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('drag-over');
+                
+                try {
+                    const sourceData = JSON.parse(e.dataTransfer.getData('text/plain'));
+                    console.log("Drop data:", sourceData);
+                    
+                    const targetMatchId = matchCard.dataset.matchId;
+                    const isTargetTeam1 = Array.from(teams).indexOf(this) === 0;
+                    
+                    // Find source and target matches
+                    const sourceMatch = round16Structure.find(m => m.id === sourceData.matchId);
+                    const targetMatch = round16Structure.find(m => m.id === targetMatchId);
+                    
+                    console.log("Source match:", sourceMatch);
+                    console.log("Target match:", targetMatch);
+                    
+                    if (sourceMatch && targetMatch) {
+                        // Perform swap based on positions
+                        let sourceField, targetField;
+                        
+                        if (sourceData.isTeam1) {
+                            sourceField = 'advancer1';
+                        } else {
+                            sourceField = 'advancer2';
+                        }
+                        
+                        if (isTargetTeam1) {
+                            targetField = 'advancer1';
+                        } else {
+                            targetField = 'advancer2';
+                        }
+                        
+                        console.log(`Swapping ${sourceField} from match ${sourceData.matchId} with ${targetField} from match ${targetMatchId}`);
+                        
+                        // Perform the swap
+                        const temp = sourceMatch[sourceField];
+                        sourceMatch[sourceField] = targetMatch[targetField];
+                        targetMatch[targetField] = temp;
+                        
+                        // Reset later rounds
+                        resetLaterRounds();
+                        
+                        // Update the UI
+                        updateRound16();
+                        
+                        // Save state
+                        saveState();
+                        
+                        console.log("Swap completed and UI updated");
+                    }
+                } catch (error) {
+                    console.error("Error processing drop:", error);
+                }
+            });
+        });
+    });
+    
+    console.log("Drag and drop setup completed");
+}
+
+// Add to initializeBracket function right after generating Round of 16 matches
+function addRound16ShuffleButtons() {
+    const round16Section = document.querySelector('#round16');
+    const matchesContainer = round16Section.querySelector('.matches-container');
+    
+    // Create shuffle buttons container
+    const shuffleContainer = document.createElement('div');
+    shuffleContainer.className = 'shuffle-buttons';
+    
+    // Add advancer1 shuffle button
+    const shuffleAdvancer1Button = document.createElement('button');
+    shuffleAdvancer1Button.className = 'shuffle-button advancer1-shuffle reset-button';
+    shuffleAdvancer1Button.innerHTML = '🔀 Winners';
+    shuffleAdvancer1Button.addEventListener('click', function() {
+        // Reset results after shuffling
+        resetLaterRounds();
+        // Then shuffle
+        shuffleAdvancer1Teams();
+    });
+    
+    // Add advancer2 shuffle button
+    const shuffleAdvancer2Button = document.createElement('button');
+    shuffleAdvancer2Button.className = 'shuffle-button advancer2-shuffle reset-button';
+    shuffleAdvancer2Button.innerHTML = '🔀 Last Chance';
+    shuffleAdvancer2Button.addEventListener('click', function() {
+        // Reset results after shuffling
+        resetLaterRounds();
+        // Then shuffle
+        shuffleAdvancer2Teams();
+    });
+    
+    // Assemble
+    shuffleContainer.appendChild(shuffleAdvancer1Button);
+    shuffleContainer.appendChild(shuffleAdvancer2Button);
+    
+    // Insert before matches container
+    round16Section.insertBefore(shuffleContainer, matchesContainer);
+    
+    // Set up drag and drop
+    // setTimeout(() => {
+    //     setupRound16DragDrop();
+    // }, 100);
+}
+
+// Add this function to clear results from Round of 16 and later rounds
+function resetLaterRounds() {
+    // Clear Round of 16 results
+    matchResults.round16 = {};
+    
+    // Clear Quarter Finals results
+    matchResults.quarterFinals = {};
+    
+    // Clear Semi Finals results
+    matchResults.semiFinals = {};
+    
+    // Clear Final results
+    matchResults.final = {};
+    
+    // Reset teams in the structures as well
+    quarterFinalsStructure.forEach(match => {
+        match.team1 = 'TBD';
+        match.team2 = 'TBD';
+    });
+    
+    semiFinalsStructure.forEach(match => {
+        match.team1 = 'TBD';
+        match.team2 = 'TBD';
+    });
+    
+    finalStructure.forEach(match => {
+        match.team1 = 'TBD';
+        match.team2 = 'TBD';
+    });
+    
+    // Remove selected class from all teams in these rounds
+    document.querySelectorAll('#round16 .team, #quarterFinals .team, #semiFinals .team, #final .team')
+        .forEach(team => team.classList.remove('selected'));
+    
+    // Update the match cards to reflect the reset teams
+    quarterFinalsStructure.forEach(match => {
+        updateMatchCard(match);
+    });
+    
+    semiFinalsStructure.forEach(match => {
+        updateMatchCard(match);
+    });
+    
+    finalStructure.forEach(match => {
+        updateMatchCard(match);
+    });
+    
+    // Reset champion display
+    const championNameElement = document.getElementById('championName');
+    if (championNameElement) {
+        championNameElement.textContent = '';
+        championNameElement.classList.remove('visible');
+    }
+    
+    // Reset trophy animation
+    const trophyImage = document.querySelector('.trophy img');
+    if (trophyImage) {
+        trophyImage.style.animation = 'none';
+    }
+    
+    // Save the reset state
+    saveState();
+}
+
 // Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeBracket();
     addResetButton();
     addMobileNavigation();
     fixBrokenImages();
+    addRound16ShuffleButtons();
     
     // Show current champion if exists
     const finalResult = matchResults.final.F;
@@ -807,3 +1102,4 @@ document.addEventListener('DOMContentLoaded', function() {
         displayChampion(finalResult.winner);
     }
 });
+

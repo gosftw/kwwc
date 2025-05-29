@@ -449,13 +449,12 @@ h1 {
 }
 
 .shuffle-button {
+    background-color: var(--red);
     padding: 8px 15px;
-    background-color: rgba(126, 9, 0, 0.8);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s;
 }
 
@@ -477,4 +476,74 @@ h1 {
 .team.drag-over {
     border: 2px dashed #db3450;
     border: 2px dashed rgba(126, 9, 0, 0.8);
+}
+
+.footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #f1c40f;
+}
+
+/* Sponsors section styling */
+.supported-by {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.supported-by p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.sponsors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sponsor-logo {
+    height: 80px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+
+.sponsors a:hover .sponsor-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sponsors {
+        gap: 1rem;
+    }
+    
+    .sponsor-logo {
+        height: 60px;
+    }
+}
+
+.supporters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
 }

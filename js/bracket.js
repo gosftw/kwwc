@@ -177,10 +177,6 @@ function selectWinner(teamElement) {
             winner: teamId
         };
         
-
-        console.log("Stored Last Chance result:", matchId, teamId);
-        console.log("All Last Chance results:", matchResults.lastChance);
-        
         // Display champion
         displayChampion(teamId);
     }
@@ -354,33 +350,20 @@ function updateSemiFinals() {
 
 // Update Final match
 function updateFinal() {
-
-    
-    console.log("Updating Round of 16");
-    console.log("Last Chance Results:", matchResults.final);
     finalStructure.forEach(match => {
-        console.log("Processing match:", match.id);
         const winner1Result = matchResults.semiFinals[match.winner1];
         const winner2Result = matchResults.semiFinals[match.winner2];
-
-        
-        console.log("First finalist:", winner1Result);
-        console.log("2nd finalist:", winner2Result);
         
         // Update the match even if only one winner is known
         if (winner1Result || winner2Result) {
             // Update team1 if winner1 is known
             if (winner1Result) {
                 match.team1 = winner1Result.winner;
-                console.log("Setting team1 to:", winner1Result.winner);
             }
             
             // Update team2 if winner2 is known
             if (winner2Result) {
                 match.team2 = winner2Result.winner;
-                console.log("Setting team2 to:", winner2Result.winner);
-            } else {
-                console.log("No Final result found");
             }
             
             // Find and update the corresponding match card
@@ -870,11 +853,9 @@ function shuffleAdvancer2Teams() {
 // Setup drag and drop functionality for Round of 16
 // Setup drag and drop functionality for Round of 16
 function setupRound16DragDrop() {
-    console.log("Setting up drag and drop for Round of 16");
     const round16Matches = document.querySelectorAll('#round16 .match-card');
     
     if (round16Matches.length === 0) {
-        console.error("No Round of 16 matches found in the DOM");
         return;
     }
     
@@ -895,8 +876,7 @@ function setupRound16DragDrop() {
             team.setAttribute('draggable', true);
             
             // Add event listeners directly (don't clone)
-            team.addEventListener('dragstart', function(e) {
-                console.log("Drag started on:", matchCard.dataset.matchId, this.dataset.teamId);
+            team.addEventListener('dragstart', function (e) {
                 e.dataTransfer.setData('text/plain', JSON.stringify({
                     matchId: matchCard.dataset.matchId,
                     teamId: this.dataset.teamId,
@@ -924,7 +904,6 @@ function setupRound16DragDrop() {
                 
                 try {
                     const sourceData = JSON.parse(e.dataTransfer.getData('text/plain'));
-                    console.log("Drop data:", sourceData);
                     
                     const targetMatchId = matchCard.dataset.matchId;
                     const isTargetTeam1 = Array.from(teams).indexOf(this) === 0;
@@ -933,8 +912,6 @@ function setupRound16DragDrop() {
                     const sourceMatch = round16Structure.find(m => m.id === sourceData.matchId);
                     const targetMatch = round16Structure.find(m => m.id === targetMatchId);
                     
-                    console.log("Source match:", sourceMatch);
-                    console.log("Target match:", targetMatch);
                     
                     if (sourceMatch && targetMatch) {
                         // Perform swap based on positions
@@ -952,8 +929,6 @@ function setupRound16DragDrop() {
                             targetField = 'advancer2';
                         }
                         
-                        console.log(`Swapping ${sourceField} from match ${sourceData.matchId} with ${targetField} from match ${targetMatchId}`);
-                        
                         // Perform the swap
                         const temp = sourceMatch[sourceField];
                         sourceMatch[sourceField] = targetMatch[targetField];
@@ -966,9 +941,7 @@ function setupRound16DragDrop() {
                         updateRound16();
                         
                         // Save state
-                        saveState();
-                        
-                        console.log("Swap completed and UI updated");
+                        saveState()
                     }
                 } catch (error) {
                     console.error("Error processing drop:", error);
@@ -976,8 +949,6 @@ function setupRound16DragDrop() {
             });
         });
     });
-    
-    console.log("Drag and drop setup completed");
 }
 
 // Add to initializeBracket function right after generating Round of 16 matches
@@ -991,8 +962,8 @@ function addRound16ShuffleButtons() {
     
     // Add advancer1 shuffle button
     const shuffleAdvancer1Button = document.createElement('button');
-    shuffleAdvancer1Button.className = 'shuffle-button advancer1-shuffle reset-button';
-    shuffleAdvancer1Button.innerHTML = '🔀 Winners';
+    shuffleAdvancer1Button.className = 'shuffle-button advancer1-shuffle';
+    shuffleAdvancer1Button.innerHTML = '<i class="fas fa-random"> Winners</i>';
     shuffleAdvancer1Button.addEventListener('click', function() {
         // Reset results after shuffling
         resetLaterRounds();
@@ -1002,8 +973,8 @@ function addRound16ShuffleButtons() {
     
     // Add advancer2 shuffle button
     const shuffleAdvancer2Button = document.createElement('button');
-    shuffleAdvancer2Button.className = 'shuffle-button advancer2-shuffle reset-button';
-    shuffleAdvancer2Button.innerHTML = '🔀 Last Chance';
+    shuffleAdvancer2Button.className = 'shuffle-button advancer2-shuffle';
+    shuffleAdvancer2Button.innerHTML = '<i class="fas fa-random"> Last Chance</i>';
     shuffleAdvancer2Button.addEventListener('click', function() {
         // Reset results after shuffling
         resetLaterRounds();

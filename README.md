@@ -24,10 +24,31 @@ kings-league-kwcc/
 ├── css/
 │   └── styles.css              # Styling for the tournament bracket
 ├── js/
-│   ├── bracket.js              # Tournament logic and UI interactions
-│   └── teams.js                # Team data and tournament structure
+│   ├── main.js                 # Main entry point
+│   ├── data/                   # Data layer
+│   │   ├── TeamsData.js        # Team information and utilities
+│   │   ├── TournamentData.js   # Tournament structure
+│   │   ├── Storage.js          # localStorage management
+│   │   └── MatchResults.js     # Match results state
+│   ├── core/                   # Business logic layer
+│   │   ├── Tournament.js       # Tournament initialization
+│   │   ├── BracketLogic.js     # Core tournament logic
+│   │   ├── Match.js            # Match entity
+│   │   └── Team.js             # Team entity
+│   ├── ui/                     # UI components layer
+│   │   ├── MatchRenderer.js    # Match/team rendering
+│   │   ├── Champion.js         # Champion display
+│   │   ├── Controls.js         # UI controls
+│   │   └── Navigation.js       # Navigation components
+│   └── utils/                  # Utilities layer
+│       ├── TimeUtils.js        # Time/countdown utilities
+│       ├── ImageUtils.js       # Image handling
+│       ├── DragDrop.js         # Drag & drop functionality
+│       └── Validators.js       # Validation utilities
 ├── img/
 │   └── kwc-trophy.svg          # Vector trophy image
+├── archive/
+│   └── original-monolithic/    # Archived original files
 ├── deploy.js                   # Deployment script
 ├── package.json                # Project configuration
 └── index.html                  # Main HTML file
@@ -90,10 +111,23 @@ The tournament bracket has been tested and works in the following browsers:
 
 - HTML5
 - CSS3 (with animations)
-- JavaScript (ES6+)
+- JavaScript (ES6+ modules)
 - LocalStorage for state persistence
 - SVG for trophy image
 - Responsive design for mobile and desktop
+- Modular architecture for maintainability
+
+## Architecture
+
+This project uses a modern modular architecture with ES6 modules:
+
+- **Data Layer**: Manages team data, tournament structure, and state persistence
+- **Core Layer**: Contains business logic for tournament progression and bracket management
+- **UI Layer**: Handles all user interface components and rendering
+- **Utils Layer**: Provides utilities for time handling, image management, and drag/drop
+- **Main Entry**: Single entry point that orchestrates all modules
+
+This architecture provides better maintainability, testability, and scalability compared to monolithic JavaScript files.
 
 ## Future Improvements
 

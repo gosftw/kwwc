@@ -1,20 +1,29 @@
 // This file manages the tournament bracket logic, including team selection and progression
 
-// Store results of matches
-let matchResults = {
-    round1: {},
-    round2Winners: {},
-    round2Losers: {},
-    lastChance: {},
-    round16: {},
-    quarterFinals: {},
-    semiFinals: {},
-    final: {}
-};
+// Import modular data
+import { teams, getTeam, getAllTeams } from './data/TeamsData.js';
+import { tournamentStructure } from './data/TournamentData.js';
+import { MatchResults } from './data/MatchResults.js';
+import { Storage } from './data/Storage.js';
+
+// Extract tournament structures for easy access
+const {
+    initialMatches,
+    round2Winners: round2WinnersStructure,
+    round2Losers: round2LosersStructure,
+    lastChance: lastChanceStructure,
+    round16: round16Structure,
+    quarterFinals: quarterFinalsStructure,
+    semiFinals: semiFinalsStructure,
+    final: finalStructure
+} = tournamentStructure;
+
+// Initialize match results
+const matchResults = new MatchResults();
 
 // Helper function to create a team element
 function createTeamElement(teamId, isSelectable = true) {
-    const team = teams[teamId] || teams.TBD;
+    const teamData = getTeam(teamId);
     
     const teamElement = document.createElement('div');
     teamElement.className = 'team';
@@ -27,21 +36,21 @@ function createTeamElement(teamId, isSelectable = true) {
     }
     
     const logoElement = document.createElement('img');
-    logoElement.src = team.logo;
-    logoElement.alt = team.name;
+    logoElement.src = teamData.logo;
+    logoElement.alt = teamData.name;
     logoElement.className = 'team-logo';
     logoElement.onerror = function() {
         // If logo fails to load, use the alternate logo or a fallback
-        if (team.altLogo) {
-            this.src = team.altLogo;
+        if (teamData.altLogo) {
+            this.src = teamData.altLogo;
         } else {
-            this.src = "https://placehold.co/30x30/black/gold?text=" + team.name;
+            this.src = "https://placehold.co/30x30/black/gold?text=" + teamData.name;
         }
     };
     
     const nameElement = document.createElement('span');
     nameElement.className = 'team-name';
-    nameElement.textContent = team.name;
+    nameElement.textContent = teamData.name;
     
     teamElement.appendChild(logoElement);
     teamElement.appendChild(nameElement);
@@ -114,10 +123,10 @@ function selectWinner(teamElement) {
             .dataset.teamId;
         
         // Store results
-        matchResults.round1[matchId] = {
+        matchResults.setRound1Result(matchId, {
             winner: teamId,
             loser: loserId
-        };
+        });
         
         // Update Round 2 winners bracket
         updateRound2Winners();
@@ -130,10 +139,10 @@ function selectWinner(teamElement) {
             .dataset.teamId;
         
         // Store results
-        matchResults.round2Winners[matchId] = {
+        matchResults.setRound2WinnersResult(matchId, {
             winner: teamId,
             loser: loserId
-        };
+        });
         
         // Update Last Chance matches
         updateLastChance();
@@ -142,49 +151,49 @@ function selectWinner(teamElement) {
         updateRound16();
     } else if (matchId.match(/^(9|10|11|12|13|14|15|16)$/)) { // Round 2 Losers
         // Store results
-        matchResults.round2Losers[matchId] = {
+        matchResults.setRound2LosersResult(matchId, {
             winner: teamId
-        };
+        });
         
         // Update Last Chance matches
         updateLastChance();
     } else if (matchId.match(/^LC[1-8]$/)) { // Last Chance
         // Store results
-        matchResults.lastChance[matchId] = {
+        matchResults.setLastChanceResult(matchId, {
             winner: teamId
-        };
+        });
         
         // Update Round of 16
         updateRound16();
     } else if (matchId.match(/^R16-[1-8]$/)) { // Round of 16
         // Store results
-        matchResults.round16[matchId] = {
+        matchResults.setRound16Result(matchId, {
             winner: teamId
-        };
+        });
         
         // Update Quarter Finals
         updateQuarterFinals();
     } else if (matchId.match(/^QF[1-4]$/)) { // Quarter Finals
         // Store results
-        matchResults.quarterFinals[matchId] = {
+        matchResults.setQuarterFinalsResult(matchId, {
             winner: teamId
-        };
+        });
         
         // Update Semi Finals
         updateSemiFinals();
     } else if (matchId.match(/^SF[1-2]$/)) { // Semi Finals
         // Store results
-        matchResults.semiFinals[matchId] = {
+        matchResults.setSemiFinalsResult(matchId, {
             winner: teamId
-        };
+        });
         
         // Update Final
         updateFinal();
     } else if (matchId === 'F') { // Final
         // Store results
-        matchResults.final[matchId] = {
+        matchResults.setFinalResult(matchId, {
             winner: teamId
-        };
+        });
         
         // Display champion
         displayChampion(teamId);
@@ -198,7 +207,8 @@ function selectWinner(teamElement) {
 function displayChampion(teamId) {
     const championNameElement = document.getElementById('championName');
     if (championNameElement) {
-        championNameElement.textContent = `${teams[teamId].name} - CHAMPION!`;
+        const teamData = getTeam(teamId);
+        championNameElement.textContent = `${teamData.name} - CHAMPION!`;
         championNameElement.classList.add('visible');
         
         // Animate trophy
@@ -212,8 +222,8 @@ function displayChampion(teamId) {
 // Update Round 2 Winners bracket based on Round 1 results
 function updateRound2Winners() {
     round2WinnersStructure.forEach(match => {
-        const winner1Result = matchResults.round1[match.winner1];
-        const winner2Result = matchResults.round1[match.winner2];
+        const winner1Result = matchResults.getRound1Result(match.winner1);
+        const winner2Result = matchResults.getRound1Result(match.winner2);
         
         // Update the match even if only one winner is known
         if (winner1Result || winner2Result) {
@@ -236,8 +246,8 @@ function updateRound2Winners() {
 // Update Round 2 Losers bracket based on Round 1 results
 function updateRound2Losers() {
     round2LosersStructure.forEach(match => {
-        const loser1Result = matchResults.round1[match.loser1];
-        const loser2Result = matchResults.round1[match.loser2];
+        const loser1Result = matchResults.getRound1Result(match.loser1);
+        const loser2Result = matchResults.getRound1Result(match.loser2);
         
         // Update the match even if only one loser is known
         if (loser1Result || loser2Result) {
@@ -260,8 +270,8 @@ function updateRound2Losers() {
 // Update Last Chance matches
 function updateLastChance() {
     lastChanceStructure.forEach(match => {
-        const loserResult = matchResults.round2Winners[match.loser];
-        const winnerResult = matchResults.round2Losers[match.winner];
+        const loserResult = matchResults.getRound2WinnersResult(match.loser);
+        const winnerResult = matchResults.getRound2LosersResult(match.winner);
         
         // Update the match even if only one team is known
         if (loserResult || winnerResult) {
@@ -286,10 +296,10 @@ function updateRound16() {
     round16Structure.forEach(match => {
         
 
-        const advancer1Result = matchResults.round2Winners[match.advancer1];
+        const advancer1Result = matchResults.getRound2WinnersResult(match.advancer1);
         // Fix: Check if advancer2 already has LC prefix
         const lcKey = match.advancer2.startsWith('LC') ? match.advancer2 : `LC${match.advancer2}`;
-        const advancer2Result = matchResults.lastChance[lcKey];
+        const advancer2Result = matchResults.getLastChanceResult(lcKey);
         
         // Update the match even if only one team is known
         if (advancer1Result || advancer2Result) {
@@ -312,8 +322,8 @@ function updateRound16() {
 // Update Quarter Finals matches
 function updateQuarterFinals() {
     quarterFinalsStructure.forEach(match => {
-        const winner1Result = matchResults.round16[match.winner1];
-        const winner2Result = matchResults.round16[match.winner2];
+        const winner1Result = matchResults.getRound16Result(match.winner1);
+        const winner2Result = matchResults.getRound16Result(match.winner2);
         
         // Update the match even if only one winner is known
         if (winner1Result || winner2Result) {
@@ -336,8 +346,8 @@ function updateQuarterFinals() {
 // Update Semi Finals matches
 function updateSemiFinals() {
     semiFinalsStructure.forEach(match => {
-        const winner1Result = matchResults.quarterFinals[match.winner1];
-        const winner2Result = matchResults.quarterFinals[match.winner2];
+        const winner1Result = matchResults.getQuarterFinalsResult(match.winner1);
+        const winner2Result = matchResults.getQuarterFinalsResult(match.winner2);
         
         // Update the match even if only one winner is known
         if (winner1Result || winner2Result) {
@@ -360,8 +370,8 @@ function updateSemiFinals() {
 // Update Final match
 function updateFinal() {
     finalStructure.forEach(match => {
-        const winner1Result = matchResults.semiFinals[match.winner1];
-        const winner2Result = matchResults.semiFinals[match.winner2];
+        const winner1Result = matchResults.getSemiFinalsResult(match.winner1);
+        const winner2Result = matchResults.getSemiFinalsResult(match.winner2);
         
         // Update the match even if only one winner is known
         if (winner1Result || winner2Result) {
@@ -442,7 +452,7 @@ function updateMatchCard(match, bracketType = null) {
 function updateTeamElement(element, teamId) {
     element.dataset.teamId = teamId;
     
-    const team = teams[teamId] || teams.TBD;
+    const team = getTeam(teamId);
     const logoElement = element.querySelector('img');
     logoElement.src = team.logo;
     logoElement.alt = team.name || 'TBD';
@@ -588,15 +598,15 @@ function initializeBracket() {
 
 // Save tournament state to local storage
 function saveState() {
-    localStorage.setItem('kwccTournamentState', JSON.stringify(matchResults));
+    Storage.save(matchResults.getState());
 }
 
 // Load tournament state from local storage
 function loadState() {
-    const savedState = localStorage.getItem('kwccTournamentState');
+    const savedState = Storage.load();
     
     if (savedState) {
-        matchResults = JSON.parse(savedState);
+        matchResults.setState(savedState);
         
         // Restore bracket state based on saved results
         restoreBracketState();
@@ -606,8 +616,9 @@ function loadState() {
 // Restore the bracket state from saved results
 function restoreBracketState() {
     // Restore Round 1 selections
-    for (const matchId in matchResults.round1) {
-        const result = matchResults.round1[matchId];
+    const round1Results = matchResults.getRoundResults('round1');
+    for (const matchId in round1Results) {
+        const result = round1Results[matchId];
         const matchCard = document.querySelector(`#round1 .match-card[data-match-id="${matchId}"]`);
         
         if (matchCard) {
@@ -625,8 +636,9 @@ function restoreBracketState() {
     updateRound2Losers();
     
     // Restore Round 2 Winners selections
-    for (const matchId in matchResults.round2Winners) {
-        const result = matchResults.round2Winners[matchId];
+    const round2WinnersResults = matchResults.getRoundResults('round2Winners');
+    for (const matchId in round2WinnersResults) {
+        const result = round2WinnersResults[matchId];
         // Updated selector to find in column structure
         const matchCard = document.querySelector(`#round2 .winners-bracket .match-card[data-match-id="${matchId}"]`);
         
@@ -639,8 +651,9 @@ function restoreBracketState() {
     }
     
     // Restore Round 2 Losers selections
-    for (const matchId in matchResults.round2Losers) {
-        const result = matchResults.round2Losers[matchId];
+    const round2LosersResults = matchResults.getRoundResults('round2Losers');
+    for (const matchId in round2LosersResults) {
+        const result = round2LosersResults[matchId];
         // Updated selector to find in column structure
         const matchCard = document.querySelector(`#round2 .losers-bracket .match-card[data-match-id="${matchId}"]`);
         
@@ -656,8 +669,9 @@ function restoreBracketState() {
     updateLastChance();
     
     // Restore Last Chance selections
-    for (const matchId in matchResults.lastChance) {
-        const result = matchResults.lastChance[matchId];
+    const lastChanceResults = matchResults.getRoundResults('lastChance');
+    for (const matchId in lastChanceResults) {
+        const result = lastChanceResults[matchId];
         const matchCard = document.querySelector(`#lastChance .match-card[data-match-id="${matchId}"]`);
         
         if (matchCard) {
@@ -672,8 +686,9 @@ function restoreBracketState() {
     updateRound16();
     
     // Restore Round of 16 selections
-    for (const matchId in matchResults.round16) {
-        const result = matchResults.round16[matchId];
+    const round16Results = matchResults.getRoundResults('round16');
+    for (const matchId in round16Results) {
+        const result = round16Results[matchId];
         const matchCard = document.querySelector(`#round16 .match-card[data-match-id="${matchId}"]`);
         
         if (matchCard) {
@@ -688,8 +703,9 @@ function restoreBracketState() {
     updateQuarterFinals();
     
     // Restore Quarter Finals selections
-    for (const matchId in matchResults.quarterFinals) {
-        const result = matchResults.quarterFinals[matchId];
+    const quarterFinalsResults = matchResults.getRoundResults('quarterFinals');
+    for (const matchId in quarterFinalsResults) {
+        const result = quarterFinalsResults[matchId];
         const matchCard = document.querySelector(`#quarterFinals .match-card[data-match-id="${matchId}"]`);
         
         if (matchCard) {
@@ -704,8 +720,9 @@ function restoreBracketState() {
     updateSemiFinals();
     
     // Restore Semi Finals selections
-    for (const matchId in matchResults.semiFinals) {
-        const result = matchResults.semiFinals[matchId];
+    const semiFinalsResults = matchResults.getRoundResults('semiFinals');
+    for (const matchId in semiFinalsResults) {
+        const result = semiFinalsResults[matchId];
         const matchCard = document.querySelector(`#semiFinals .match-card[data-match-id="${matchId}"]`);
         
         if (matchCard) {
@@ -720,8 +737,9 @@ function restoreBracketState() {
     updateFinal();
     
     // Restore Final selection
-    for (const matchId in matchResults.final) {
-        const result = matchResults.final[matchId];
+    const finalResults = matchResults.getRoundResults('final');
+    for (const matchId in finalResults) {
+        const result = finalResults[matchId];
         const matchCard = document.querySelector(`#final .match-card[data-match-id="${matchId}"]`);
         
         if (matchCard) {
@@ -798,7 +816,7 @@ function addMobileNavigation() {
 function fixBrokenImages() {
     document.querySelectorAll('.team-logo').forEach(img => {
         const teamId = img.closest('.team')?.dataset.teamId;
-        const team = teams[teamId] || teams.TBD;
+        const team = getTeam(teamId);
         
         img.onerror = function() {
             if (team.altLogo) {
@@ -1007,16 +1025,16 @@ function addRound16ShuffleButtons() {
 // Add this function to clear results from Round of 16 and later rounds
 function resetLaterRounds() {
     // Clear Round of 16 results
-    matchResults.round16 = {};
+    matchResults.clearRound('round16');
     
     // Clear Quarter Finals results
-    matchResults.quarterFinals = {};
+    matchResults.clearRound('quarterFinals');
     
     // Clear Semi Finals results
-    matchResults.semiFinals = {};
+    matchResults.clearRound('semiFinals');
     
     // Clear Final results
-    matchResults.final = {};
+    matchResults.clearRound('final');
     
     // Reset teams in the structures as well
     quarterFinalsStructure.forEach(match => {
@@ -1180,7 +1198,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addRound16ShuffleButtons();
     
     // Show current champion if exists
-    const finalResult = matchResults.final.F;
+    const finalResult = matchResults.getFinalResult('F');
     if (finalResult && finalResult.winner) {
         displayChampion(finalResult.winner);
     }

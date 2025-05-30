@@ -611,7 +611,7 @@ h1 {
   }
   
   .scroll-arrow.right {
-    right: -50px;
+    right: 10px;
   }
   
   .scroll-arrow.disabled {

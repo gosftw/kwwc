@@ -553,7 +553,6 @@ h1 {
 /* Add to your CSS file */
 .has-tooltip {
     position: relative;
-    cursor: help;
 }
 
 /* Optional fancy tooltip if you want it */
@@ -618,3 +617,103 @@ h1 {
     opacity: 0.3;
     cursor: not-allowed;
   }
+
+.match-header {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 120px;
+}
+
+.team-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.vs-section {
+    color: #888;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 20px;
+}
+
+.predictions-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* margin-top: 8px; */
+    min-height: 24px;
+}
+
+.team-predictions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 120px;
+}
+
+.predictions-spacer {
+    flex: 0 0 60px; /* Same width as vs-section */
+}
+
+.media-predictions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    min-height: 24px;
+}
+
+.media-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.media-icon:hover {
+    transform: scale(1.2);
+}
+
+.media-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.media-icon:hover::after {
+    content: attr(data-media-name);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 100;
+    font-size: 0.9em;
+}

@@ -2,24 +2,136 @@
 
 export const tournamentStructure = {
     initialMatches: [
-        { id: "A", team1: "DMG", team2: "ZAY", round: 1, match: 1, matchTime: "2025-06-01T16:00:00+02:00" },
-        { id: "B", team1: "PRS", team2: "LCA", round: 1, match: 2, matchTime: "2025-06-02T22:00:00+02:00" },
-        { id: "C", team1: "GFC", team2: "ULT", round: 1, match: 3, matchTime: "2025-06-01T20:00:00+02:00" },
-        { id: "D", team1: "POR", team2: "MI7", round: 1, match: 4, matchTime: "2025-06-01T22:00:00+02:00" },
-        { id: "E", team1: "BMR", team2: "U3D", round: 1, match: 5, matchTime: "2025-06-02T20:00:00+02:00" },
-        { id: "F", team1: "GDC", team2: "ERA", round: 1, match: 6, matchTime: "2025-06-01T19:00:00+02:00" },
-        { id: "G", team1: "GR7", team2: "KRS", round: 1, match: 7, matchTime: "2025-06-03T20:00:00+02:00" },
-        { id: "H", team1: "ZTA", team2: "OUN", round: 1, match: 8, matchTime: "2025-06-01T17:00:00+02:00" },
+        {
+            id: "A", team1: "DMG", team2: "ZAY", round: 1, match: 1,
+            matchTime: "2025-06-01T16:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" },
+            ]
+        },
+        {
+            id: "B", team1: "PRS", team2: "LCA", round: 1, match: 2,
+            matchTime: "2025-06-02T22:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team2" },
+            ]
+        },
+        {
+            id: "C", team1: "GFC", team2: "ULT", round: 1, match: 3,
+            matchTime: "2025-06-01T20:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team2" },
+            ]
+        },
+        {
+            id: "D", team1: "POR", team2: "MI7", round: 1, match: 4,
+            matchTime: "2025-06-01T22:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" },
+            ]
+        },
+        {
+            id: "E", team1: "BMR", team2: "U3D", round: 1, match: 5,
+            matchTime: "2025-06-02T20:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" },
+            ]
+        },
+        {
+            id: "F", team1: "GDC", team2: "ERA", round: 1, match: 6,
+            matchTime: "2025-06-01T19:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "G", team1: "GR7", team2: "KRS", round: 1, match: 7,
+            matchTime: "2025-06-03T20:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "H", team1: "ZTA", team2: "OUN", round: 1, match: 8,
+            matchTime: "2025-06-01T17:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
         
         // Round 1 - Right Side (add similar matchTime values for all matches)
-        { id: "I", team1: "SXB", team2: "JFC", round: 1, match: 9, matchTime: "2025-06-02T21:00:00+02:00" },
-        { id: "J", team1: "FUR", team2: "KNS", round: 1, match: 10, matchTime: "2025-06-01T21:00:00+02:00" },
-        { id: "K", team1: "TFC", team2: "TRM", round: 1, match: 11, matchTime: "2025-06-03T19:00:00+02:00" },
-        { id: "L", team1: "XBU", team2: "CHA", round: 1, match: 12, matchTime: "2025-06-03T21:00:00+02:00" },
-        { id: "M", team1: "FLX", team2: "FLC", round: 1, match: 13, matchTime: "2025-06-02T19:00:00+02:00" },
-        { id: "N", team1: "ULC", team2: "PAS", round: 1, match: 14, matchTime: "2025-06-01T18:00:00+02:00" },
-        { id: "O", team1: "DDL", team2: "JXZ", round: 1, match: 15, matchTime: "2025-06-03T22:00:00+02:00" },
-        { id: "P", team1: "F2R", team2: "MUR", round: 1, match: 16, matchTime: "2025-06-01T15:00:00+02:00" }
+        {
+            id: "I", team1: "SXB", team2: "JFC", round: 1, match: 9,
+            matchTime: "2025-06-02T21:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team2" }
+            ]
+        },
+        {
+            id: "J", team1: "FUR", team2: "KNS", round: 1, match: 10,
+            matchTime: "2025-06-01T21:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "K", team1: "TFC", team2: "TRM", round: 1, match: 11,
+            matchTime: "2025-06-03T19:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "L", team1: "XBU", team2: "CHA", round: 1, match: 12,
+            matchTime: "2025-06-03T21:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team2" }
+            ]
+        },
+        {
+            id: "M", team1: "FLX", team2: "FLC", round: 1, match: 13,
+            matchTime: "2025-06-02T19:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "N", team1: "ULC", team2: "PAS", round: 1, match: 14,
+            matchTime: "2025-06-01T18:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "O", team1: "DDL", team2: "JXZ", round: 1, match: 15,
+            matchTime: "2025-06-03T22:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        },
+        {
+            id: "P", team1: "F2R", team2: "MUR", round: 1, match: 16,
+            matchTime: "2025-06-01T15:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                { mediaId: "TRATTORIA", predictedWinner: "team1" }
+            ]
+        }
     ],
     
     round2Winners: [

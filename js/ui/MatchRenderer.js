@@ -2,6 +2,7 @@
 
 import { getTeam } from '../data/TeamsData.js';
 import { getMatchIdWithCountdown, formatLocalMatchTime } from '../utils/TimeUtils.js';
+import { getMediaPredictions, mediaConfig } from '../data/MediaData.js';
 
 // Helper function to create a team element
 function createTeamElement(teamId, isSelectable = true) {
@@ -39,6 +40,36 @@ function createTeamElement(teamId, isSelectable = true) {
     teamElement.appendChild(nameElement);
     
     return teamElement;
+}
+
+// Helper function to create media prediction icons
+function createMediaPredictions(mediaPredictions) {
+    const predictionsContainer = document.createElement('div');
+    predictionsContainer.className = 'media-predictions';
+    
+    mediaPredictions.forEach(media => {
+        const mediaIcon = document.createElement('div');
+        mediaIcon.className = 'media-icon';
+        mediaIcon.setAttribute('data-media-name', media.name);
+        
+        const mediaImg = document.createElement('img');
+        mediaImg.src = media.image;
+        mediaImg.alt = media.alt;
+        mediaImg.onerror = function() {
+            // Fallback for missing media images
+            this.src = "https://placehold.co/20x20/333/fff?text=" + media.mediaId.charAt(0);
+        };
+        
+        // const tooltip = document.createElement('div');
+        // tooltip.className = 'media-tooltip';
+        // tooltip.textContent = media.name;
+        
+        mediaIcon.appendChild(mediaImg);
+        // mediaIcon.appendChild(tooltip);
+        predictionsContainer.appendChild(mediaIcon);
+    });
+    
+    return predictionsContainer;
 }
 
 // Generate a match card element
@@ -82,6 +113,34 @@ function createMatchElement(match) {
     matchInfo.appendChild(team2Element);
     
     matchElement.appendChild(matchInfo);
+
+    // Add predictions section if predictions exist
+    if (match.predictions && match.predictions.length > 0) {
+        const predictions = getMediaPredictions(match.predictions);
+        
+        const predictionsSection = document.createElement('div');
+        predictionsSection.className = 'predictions-section';
+        
+        // Team 1 predictions
+        const team1Predictions = document.createElement('div');
+        team1Predictions.className = 'team-predictions';
+        team1Predictions.appendChild(createMediaPredictions(predictions.team1));
+        
+        // Spacer to maintain alignment with VS section
+        const predictionsSpacer = document.createElement('div');
+        predictionsSpacer.className = 'predictions-spacer';
+        
+        // Team 2 predictions
+        const team2Predictions = document.createElement('div');
+        team2Predictions.className = 'team-predictions';
+        team2Predictions.appendChild(createMediaPredictions(predictions.team2));
+        
+        predictionsSection.appendChild(team1Predictions);
+        predictionsSection.appendChild(predictionsSpacer);
+        predictionsSection.appendChild(team2Predictions);
+        
+        matchElement.appendChild(predictionsSection);
+    }
     
     return matchElement;
 }

@@ -1,12 +1,12 @@
 export const mediaConfig = {
     "TRATTORIA": {
         name: "Trattoria KL",
-        image: "/img/media/trattoria_kl.jpeg",
+        image: "img/media/trattoria_kl_small.jpeg",
         alt: "Trattoria KL"
     },
     "DINASTIA": {
         name: "Dinastía Kings",
-        image: "/img/media/dinastia_kings.jpg",
+        image: "img/media/dinastia_kings_small.jpg",
         alt: "Dinastía Kings"
     }
 };

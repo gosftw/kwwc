@@ -123,7 +123,7 @@ function createMatchElement(match) {
         
         // Team 1 predictions
         const team1Predictions = document.createElement('div');
-        team1Predictions.className = 'team-predictions';
+        team1Predictions.className = 'team1-predictions';
         team1Predictions.appendChild(createMediaPredictions(predictions.team1));
         
         // Spacer to maintain alignment with VS section
@@ -132,7 +132,7 @@ function createMatchElement(match) {
         
         // Team 2 predictions
         const team2Predictions = document.createElement('div');
-        team2Predictions.className = 'team-predictions';
+        team2Predictions.className = 'team2-predictions';
         team2Predictions.appendChild(createMediaPredictions(predictions.team2));
         
         predictionsSection.appendChild(team1Predictions);

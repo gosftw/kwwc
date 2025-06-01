@@ -10,6 +10,8 @@ function getCountdown(matchTimeString) {
     
     // If the match is in the past or happening now
     if (diff <= 0) {
+        const minutesPast = diff / 1000 / 60;
+        if (minutesPast < -75) { return "OVER"; }
         return "LIVE";
     }
     

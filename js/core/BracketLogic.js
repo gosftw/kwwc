@@ -337,6 +337,10 @@ function loadState() {
         
         // Restore bracket state based on saved results
         restoreBracketState();
+    } else {
+        // No saved state, but we might have real results from constructor
+        // Still need to restore UI state to show real results
+        restoreBracketState();
     }
 }
 
@@ -352,6 +356,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('round1', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -373,6 +382,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('round2Winners', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -388,6 +402,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('round2Losers', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -405,6 +424,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('lastChance', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -422,6 +446,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('round16', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -439,6 +468,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('quarterFinals', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -456,6 +490,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('semiFinals', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }
@@ -473,6 +512,11 @@ function restoreBracketState() {
             const winnerTeam = matchCard.querySelector(`.team[data-team-id="${result.winner}"]`);
             if (winnerTeam) {
                 winnerTeam.classList.add('selected');
+
+                // Add real-result class if this is a real result
+                if (matchResults.isRealResult('final', matchId)) {
+                    winnerTeam.classList.add('real-result');
+                }
             }
         }
     }

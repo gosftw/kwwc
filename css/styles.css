@@ -171,9 +171,15 @@ h1 {
 }
 
 .team.selected {
-    animation: pulse 1s infinite;
     background-color: rgba(212, 183, 142, 0.4);
     border: 1px solid var(--gold);
+}
+
+.team.selected.real-result {
+    background-color: rgba(212, 142, 157, 0.4);
+    animation: pulse 1s infinite;
+    border: 1px solid var(--red);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
 .team-logo {

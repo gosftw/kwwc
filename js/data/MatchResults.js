@@ -2,8 +2,13 @@
 export class MatchResults {
     constructor() {
         this.results = {
-            round1: {},
-            round2Winners: {},
+            round1: {
+                // "A": { winner: "ZAY", loser: "DMG", winnerGoals: 3, loserGoals: 1 },
+                // "B": { winner: "PRS", loser: "LCA", winnerGoals: 2, loserGoals: 0 }
+            },
+            round2Winners: {
+                // "1": { winner: "ZAY", loser: "PRS", winnerGoals: 4, loserGoals: 2 },
+            },
             round2Losers: {},
             lastChance: {},
             round16: {},
@@ -11,6 +16,10 @@ export class MatchResults {
             semiFinals: {},
             final: {}
         };
+        this.realResults = new Set([
+            // 'round1.A', 'round1.B', 'round2Winners.1'
+            // Add more real result identifiers as needed
+        ]);
     }
     
     // Generic methods
@@ -104,9 +113,38 @@ export class MatchResults {
     }
     
     setState(state) {
+        // if (state && typeof state === 'object') {
+        //     this.results = { ...this.results, ...state };
+        // }
         if (state && typeof state === 'object') {
-            this.results = { ...this.results, ...state };
+            // Keep existing results, only fill empty rounds
+            Object.keys(state).forEach(round => {
+                if (!this.results[round]) {
+                    this.results[round] = {};
+                }
+                
+                Object.keys(state[round] || {}).forEach(matchId => {
+                    if (!this.results[round][matchId]) {
+                        this.results[round][matchId] = state[round][matchId];
+                    }
+                });
+            });
         }
+    }
+
+    setRealResults(realResults) {
+        if (realResults && typeof realResults === 'object') {
+            this.results = { ...this.results, ...realResults };
+        }
+    }
+
+    isRealResult(round, matchId) {
+        return this.realResults.has(`${round}.${matchId}`);
+    }
+    
+    // Mark a result as real
+    markAsReal(round, matchId) {
+        this.realResults.add(`${round}.${matchId}`);
     }
     
     clearRound(round) {

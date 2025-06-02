@@ -11,6 +11,10 @@ export class MatchResults {
                 "C": { winner: "ULT", loser: "GFC" },
                 "J": { winner: "FUR", loser: "KNS" },
                 "D": { winner: "POR", loser: "MI7" },
+                "M": { winner: "FLX", loser: "FLC" },
+                "E": { winner: "U3D", loser: "BMR" },
+                "I": { winner: "JFC", loser: "SXB" },
+                "B": { winner: "PRS", loser: "LCA" },
             },
             round2Winners: {
                 // "1": { winner: "ZAY", loser: "PRS", winnerGoals: 4, loserGoals: 2 },
@@ -24,6 +28,7 @@ export class MatchResults {
         };
         this.realResults = new Set([
             'round1.P', 'round1.A', 'round1.H', 'round1.N', 'round1.F', 'round1.C', 'round1.J', 'round1.D', // day 1
+            'round1.E', 'round1.I', 'round1.M', 'round1.B', // day 2
             //'round2Winners.1'
             // Add more real result identifiers as needed
         ]);

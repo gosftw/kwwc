@@ -3,16 +3,14 @@ export class MatchResults {
     constructor() {
         this.results = {
             round1: {
-                "P": { winner: "F2R", loser: "MUR", winnerGoals: 5, loserGoals: 3 },
-                "A": { winner: "DMG", loser: "ZAY", winnerGoals: 5, loserGoals: 3 },
-                "H": { winner: "ZTA", loser: "OUN", winnerGoals: 5, loserGoals: 2 },
-                "N": { winner: "PAS", loser: "ULC", winnerGoals: 5, loserGoals: 4 },
-                "F": { winner: "GDC", loser: "ERA", winnerGoals: 5, loserGoals: 4 },
-                "C": { winner: "ULT", loser: "GFC", winnerGoals: 3, loserGoals: 1 },
-                "J": { winner: "FUR", loser: "KNS", winnerGoals: 8, loserGoals: 4 },
-                "D": { winner: "POR", loser: "MI7", winnerGoals: 5, loserGoals: 4 },
-                // "A": { winner: "ZAY", loser: "DMG", winnerGoals: 3, loserGoals: 1 },
-                // "B": { winner: "PRS", loser: "LCA", winnerGoals: 2, loserGoals: 0 }
+                "P": { winner: "F2R", loser: "MUR" },
+                "A": { winner: "DMG", loser: "ZAY" },
+                "H": { winner: "ZTA", loser: "OUN" },
+                "N": { winner: "PAS", loser: "ULC" },
+                "F": { winner: "GDC", loser: "ERA" },
+                "C": { winner: "ULT", loser: "GFC" },
+                "J": { winner: "FUR", loser: "KNS" },
+                "D": { winner: "POR", loser: "MI7" },
             },
             round2Winners: {
                 // "1": { winner: "ZAY", loser: "PRS", winnerGoals: 4, loserGoals: 2 },
@@ -25,7 +23,8 @@ export class MatchResults {
             final: {}
         };
         this.realResults = new Set([
-            'round1.P', 'round1.A', 'round1.H', 'round1.N', 'round1.F', 'round1.C', 'round1.J', 'round1.D', //'round2Winners.1'
+            'round1.P', 'round1.A', 'round1.H', 'round1.N', 'round1.F', 'round1.C', 'round1.J', 'round1.D', // day 1
+            //'round2Winners.1'
             // Add more real result identifiers as needed
         ]);
     }

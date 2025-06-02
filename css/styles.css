@@ -737,3 +737,59 @@ h1 {
     z-index: 100;
     font-size: 0.9em;
 }
+
+/* Score styling */
+.match-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    /* font-size: 1.2em; */
+    padding: 0 15px;
+    min-width: 50px;
+}
+
+.score-team1, .score-team2 {
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+}
+
+.score-separator {
+    margin: 0 8px;
+    font-weight: bold;
+    color: #666;
+    /* font-size: 1.1em; */
+}
+
+/* Highlight winning score */
+.score-team1.winner {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.score-team2.winner {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Match info layout adjustment */
+.match-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Ensure teams take equal space */
+.team {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

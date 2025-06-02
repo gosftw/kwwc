@@ -8,7 +8,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" },
-            ]
+            ],
+            score: { team1: 5, team2: 3 } // Example score for match A
         },
         {
             id: "B", team1: "PRS", team2: "LCA", round: 1, match: 2,
@@ -24,7 +25,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 { mediaId: "TRATTORIA", predictedWinner: "team2" },
-            ]
+            ],
+            score: { team1: 1, team2: 3 }
         },
         {
             id: "D", team1: "POR", team2: "MI7", round: 1, match: 4,
@@ -32,7 +34,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" },
-            ]
+            ],
+            score: { team1: 5, team2: 4 }
         },
         {
             id: "E", team1: "BMR", team2: "U3D", round: 1, match: 5,
@@ -48,7 +51,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 5, team2: 4 }
         },
         {
             id: "G", team1: "GR7", team2: "KRS", round: 1, match: 7,
@@ -64,7 +68,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 5, team2: 2 }
         },
         
         // Round 1 - Right Side (add similar matchTime values for all matches)
@@ -82,7 +87,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 8, team2: 4 }
         },
         {
             id: "K", team1: "TFC", team2: "TRM", round: 1, match: 11,
@@ -114,7 +120,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 4, team2: 5 }
         },
         {
             id: "O", team1: "DDL", team2: "JXZ", round: 1, match: 15,
@@ -130,7 +137,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 5, team2: 3 }
         }
     ],
     

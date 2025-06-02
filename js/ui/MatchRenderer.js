@@ -98,18 +98,44 @@ function createMatchElement(match) {
     
     // First team
     const team1Element = createTeamElement(match.team1, match.team1 !== 'TBD' && match.team2 !== 'TBD');
+    // Score display
+    let scoreElement = null;
+    if (match.score) {
+        scoreElement = document.createElement('div');
+        scoreElement.className = 'match-score';
+        
+        const score1 = document.createElement('span');
+        score1.className = 'score-team1';
+        score1.textContent = match.score.team1 || 0;
+        
+        const scoreSeparator = document.createElement('span');
+        scoreSeparator.className = 'score-separator';
+        scoreSeparator.textContent = ':';
+        
+        const score2 = document.createElement('span');
+        score2.className = 'score-team2';
+        score2.textContent = match.score.team2 || 0;
+        
+        scoreElement.appendChild(score1);
+        scoreElement.appendChild(scoreSeparator);
+        scoreElement.appendChild(score2);
+    }
     
     // VS text
     const vsElement = document.createElement('span');
     vsElement.className = 'vs';
-    vsElement.textContent = 'VS';
+    vsElement.textContent = scoreElement ? '' : 'VS';
     
     // Second team
     const team2Element = createTeamElement(match.team2, match.team1 !== 'TBD' && match.team2 !== 'TBD');
     
     // Assemble match info
     matchInfo.appendChild(team1Element);
-    matchInfo.appendChild(vsElement);
+    if (scoreElement) {
+        matchInfo.appendChild(scoreElement);
+    } else {
+        matchInfo.appendChild(vsElement);
+    }
     matchInfo.appendChild(team2Element);
     
     matchElement.appendChild(matchInfo);

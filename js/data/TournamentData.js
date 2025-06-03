@@ -18,7 +18,7 @@ export const tournamentStructure = {
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team2" },
             ],
-            score: { team1: "(4)2", team2: "2(3)" } // Example score for match A
+            score: { team1: "(4)2", team2: "2(3)" }
         },
         {
             id: "C", team1: "GFC", team2: "ULT", round: 1, match: 3,
@@ -62,7 +62,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: "(1)4", team2: "4(2)" }
         },
         {
             id: "H", team1: "ZTA", team2: "OUN", round: 1, match: 8,
@@ -99,7 +100,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 3, team2: 2 }
         },
         {
             id: "L", team1: "XBU", team2: "CHA", round: 1, match: 12,

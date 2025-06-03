@@ -147,25 +147,73 @@ export const tournamentStructure = {
     ],
     
     round2Winners: [
-        { id: "1", team1: "TBD", team2: "TBD", winner1: "A", winner2: "B", round: 2, match: 1 },
-        { id: "2", team1: "TBD", team2: "TBD", winner1: "C", winner2: "D", round: 2, match: 2 },
-        { id: "3", team1: "TBD", team2: "TBD", winner1: "E", winner2: "F", round: 2, match: 3 },
-        { id: "4", team1: "TBD", team2: "TBD", winner1: "G", winner2: "H", round: 2, match: 4 },
-        { id: "5", team1: "TBD", team2: "TBD", winner1: "I", winner2: "J", round: 2, match: 5 },
-        { id: "6", team1: "TBD", team2: "TBD", winner1: "K", winner2: "L", round: 2, match: 6 },
-        { id: "7", team1: "TBD", team2: "TBD", winner1: "M", winner2: "N", round: 2, match: 7 },
-        { id: "8", team1: "TBD", team2: "TBD", winner1: "O", winner2: "P", round: 2, match: 8 }
+        {
+            id: "1", team1: "TBD", team2: "TBD", winner1: "A", winner2: "B", round: 2, match: 1,
+            matchTime: "2025-06-04T22:00:00+02:00",
+        },
+        {
+            id: "2", team1: "TBD", team2: "TBD", winner1: "C", winner2: "D", round: 2, match: 2,
+            matchTime: "2025-06-04T21:00:00+02:00",
+        },
+        {
+            id: "3", team1: "TBD", team2: "TBD", winner1: "E", winner2: "F", round: 2, match: 3,
+            matchTime: "2025-06-05T21:00:00+02:00",
+        },
+        {
+            id: "4", team1: "TBD", team2: "TBD", winner1: "G", winner2: "H", round: 2, match: 4,
+            // matchTime: "2025-06-06T19:00:00+02:00",
+        },
+        {
+            id: "5", team1: "TBD", team2: "TBD", winner1: "I", winner2: "J", round: 2, match: 5,
+            // matchTime: "2025-06-07T19:00:00+02:00",
+        },
+        {
+            id: "6", team1: "TBD", team2: "TBD", winner1: "K", winner2: "L", round: 2, match: 6,
+            // matchTime: "2025-06-07T19:00:00+02:00",
+        },
+        {
+            id: "7", team1: "TBD", team2: "TBD", winner1: "M", winner2: "N", round: 2, match: 7,
+            matchTime: "2025-06-05T22:00:00+02:00",
+        },
+        {
+            id: "8", team1: "TBD", team2: "TBD", winner1: "O", winner2: "P", round: 2, match: 8,
+            // matchTime: "2025-06-06T19:00:00+02:00",
+        }
     ],
     
     round2Losers: [
-        { id: "9", team1: "TBD", team2: "TBD", loser1: "A", loser2: "B", round: 2, match: 9 },
-        { id: "10", team1: "TBD", team2: "TBD", loser1: "C", loser2: "D", round: 2, match: 10 },
-        { id: "11", team1: "TBD", team2: "TBD", loser1: "E", loser2: "F", round: 2, match: 11 },
-        { id: "12", team1: "TBD", team2: "TBD", loser1: "G", loser2: "H", round: 2, match: 12 },
-        { id: "13", team1: "TBD", team2: "TBD", loser1: "I", loser2: "J", round: 2, match: 13 },
-        { id: "14", team1: "TBD", team2: "TBD", loser1: "K", loser2: "L", round: 2, match: 14 },
-        { id: "15", team1: "TBD", team2: "TBD", loser1: "M", loser2: "N", round: 2, match: 15 },
-        { id: "16", team1: "TBD", team2: "TBD", loser1: "O", loser2: "P", round: 2, match: 16 }
+        {
+            id: "9", team1: "TBD", team2: "TBD", loser1: "A", loser2: "B", round: 2, match: 9,
+            matchTime: "2025-06-04T19:00:00+02:00",
+        },
+        {
+            id: "10", team1: "TBD", team2: "TBD", loser1: "C", loser2: "D", round: 2, match: 10,
+            matchTime: "2025-06-04T20:00:00+02:00",
+        },
+        {
+            id: "11", team1: "TBD", team2: "TBD", loser1: "E", loser2: "F", round: 2, match: 11,
+            matchTime: "2025-06-05T19:00:00+02:00",
+        },
+        {
+            id: "12", team1: "TBD", team2: "TBD", loser1: "G", loser2: "H", round: 2, match: 12,
+            // matchTime: "2025-06-06T19:00:00+02:00",
+        },
+        {
+            id: "13", team1: "TBD", team2: "TBD", loser1: "I", loser2: "J", round: 2, match: 13,
+            // matchTime: "2025-06-07T19:00:00+02:00",
+        },
+        {
+            id: "14", team1: "TBD", team2: "TBD", loser1: "K", loser2: "L", round: 2, match: 14,
+            // matchTime: "2025-06-07T19:00:00+02:00",
+        },
+        {
+            id: "15", team1: "TBD", team2: "TBD", loser1: "M", loser2: "N", round: 2, match: 15,
+            matchTime: "2025-06-05T20:00:00+02:00",
+        },
+        {
+            id: "16", team1: "TBD", team2: "TBD", loser1: "O", loser2: "P", round: 2, match: 16,
+            // matchTime: "2025-06-06T19:00:00+02:00",
+        }
     ],
     
     lastChance: [

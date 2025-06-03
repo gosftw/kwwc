@@ -109,7 +109,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 { mediaId: "TRATTORIA", predictedWinner: "team2" }
-            ]
+            ],
+            score: { team1: 10, team2: 1 }
         },
         {
             id: "M", team1: "FLX", team2: "FLC", round: 1, match: 13,
@@ -135,7 +136,8 @@ export const tournamentStructure = {
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 { mediaId: "TRATTORIA", predictedWinner: "team1" }
-            ]
+            ],
+            score: { team1: 5, team2: 4 }
         },
         {
             id: "P", team1: "F2R", team2: "MUR", round: 1, match: 16,

@@ -159,6 +159,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team1" },
             ],
+            score: { team1: 1, team2: 4 }
         },
         {
             id: "2", team1: "TBD", team2: "TBD", winner1: "C", winner2: "D", round: 2, match: 2,
@@ -168,6 +169,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team1" },
             ],
+            score: { team1: 3, team2: 7 }
         },
         {
             id: "3", team1: "TBD", team2: "TBD", winner1: "E", winner2: "F", round: 2, match: 3,
@@ -227,22 +229,24 @@ export const tournamentStructure = {
     
     round2Losers: [
         {
-            id: "9", team1: "TBD", team2: "TBD", loser1: "A", loser2: "B", round: 2, match: 9,
+            id: "9", team1: "ZAY", team2: "LCA", loser1: "A", loser2: "B", round: 2, match: 9,
             matchTime: "2025-06-04T19:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team1" },
             ],
+            score: { team1: 5, team2: 6 }
         },
         {
-            id: "10", team1: "TBD", team2: "TBD", loser1: "C", loser2: "D", round: 2, match: 10,
+            id: "10", team1: "GFC", team2: "MI7", loser1: "C", loser2: "D", round: 2, match: 10,
             matchTime: "2025-06-04T20:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team2" },
             ],
+            score: { team1: 2, team2: 9 }
         },
         {
             id: "11", team1: "TBD", team2: "TBD", loser1: "E", loser2: "F", round: 2, match: 11,

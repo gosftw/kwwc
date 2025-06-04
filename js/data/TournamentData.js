@@ -180,7 +180,7 @@ export const tournamentStructure = {
         },
         {
             id: "4", team1: "TBD", team2: "TBD", winner1: "G", winner2: "H", round: 2, match: 4,
-            // matchTime: "2025-06-06T19:00:00+02:00",
+            matchTime: "2025-06-06T20:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -189,7 +189,7 @@ export const tournamentStructure = {
         },
         {
             id: "5", team1: "TBD", team2: "TBD", winner1: "I", winner2: "J", round: 2, match: 5,
-            // matchTime: "2025-06-07T19:00:00+02:00",
+            matchTime: "2025-06-07T22:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -198,7 +198,7 @@ export const tournamentStructure = {
         },
         {
             id: "6", team1: "TBD", team2: "TBD", winner1: "K", winner2: "L", round: 2, match: 6,
-            // matchTime: "2025-06-07T19:00:00+02:00",
+            matchTime: "2025-06-06T21:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -216,7 +216,7 @@ export const tournamentStructure = {
         },
         {
             id: "8", team1: "TBD", team2: "TBD", winner1: "O", winner2: "P", round: 2, match: 8,
-            // matchTime: "2025-06-06T19:00:00+02:00",
+            matchTime: "2025-06-06T22:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -255,7 +255,7 @@ export const tournamentStructure = {
         },
         {
             id: "12", team1: "TBD", team2: "TBD", loser1: "G", loser2: "H", round: 2, match: 12,
-            // matchTime: "2025-06-06T19:00:00+02:00",
+            matchTime: "2025-06-06T19:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -264,7 +264,7 @@ export const tournamentStructure = {
         },
         {
             id: "13", team1: "TBD", team2: "TBD", loser1: "I", loser2: "J", round: 2, match: 13,
-            // matchTime: "2025-06-07T19:00:00+02:00",
+            matchTime: "2025-06-07T21:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -273,7 +273,7 @@ export const tournamentStructure = {
         },
         {
             id: "14", team1: "TBD", team2: "TBD", loser1: "K", loser2: "L", round: 2, match: 14,
-            // matchTime: "2025-06-07T19:00:00+02:00",
+            matchTime: "2025-06-07T20:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team2" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
@@ -291,7 +291,7 @@ export const tournamentStructure = {
         },
         {
             id: "16", team1: "TBD", team2: "TBD", loser1: "O", loser2: "P", round: 2, match: 16,
-            // matchTime: "2025-06-06T19:00:00+02:00",
+            matchTime: "2025-06-07T19:00:00+02:00",
             predictions: [
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },

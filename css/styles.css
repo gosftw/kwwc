@@ -124,31 +124,6 @@ h1 {
     /* flex-wrap: wrap; */
 }
 
-/* Add these styles to your CSS file
-
-.winners, .losers {
-    width: 100%;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.winners .column, .losers .column {
-    padding: 0 0.25rem;
-}
-
-/* Adjust width for mobile */
-/* @media (max-width: 768px) {
-    .column {
-        width: 100%;
-    }
-}
- */
-/* end */ 
-
 .match-info {
     display: flex;
     justify-content: space-between;
@@ -212,7 +187,7 @@ h1 {
     transform: translate(-50%, -50%);
     background-color: var(--gold);
     color: var(--black);
-    padding: 0.15rem 0.3rem;
+    padding: 0rem 0.3rem;
     border-radius: 3px;
     font-size: 0.7rem;
     font-weight: bold;
@@ -561,11 +536,6 @@ h1 {
     margin-top: 0.25rem;
 }
 
-/* Add to your CSS file */
-.has-tooltip {
-    position: relative;
-}
-
 /* Optional fancy tooltip if you want it */
 .has-tooltip:hover::after {
     content: attr(title);
@@ -634,8 +604,8 @@ h1 {
     text-align: center;
     color: #fff;
     font-weight: bold;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+    /* margin-bottom: 12px; */
+    /* padding-bottom: 8px; */
     border-bottom: 1px solid #333;
 }
 

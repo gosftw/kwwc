@@ -8,6 +8,11 @@ export const mediaConfig = {
         name: "Dinastía Kings",
         image: "img/media/dinastia_kings_small.jpg",
         alt: "Dinastía Kings"
+    },
+    "TRIBUNA": {
+        name: "Tribuna KL",
+        image: "img/media/tribunakl.png",
+        alt: "Tribuna KL"
     }
 };
 

@@ -179,6 +179,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team2" },
             ],
+            score: { team1: 6, team2: 3 }
         },
         {
             id: "4", team1: "TBD", team2: "TBD", winner1: "G", winner2: "H", round: 2, match: 4,
@@ -215,6 +216,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team1" },
             ],
+            score: { team1: 4, team2: 5 }
         },
         {
             id: "8", team1: "TBD", team2: "TBD", winner1: "O", winner2: "P", round: 2, match: 8,
@@ -256,6 +258,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team2" },
             ],
+            score: { team1: 6, team2: 5 }
         },
         {
             id: "12", team1: "TBD", team2: "TBD", loser1: "G", loser2: "H", round: 2, match: 12,
@@ -292,6 +295,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 { mediaId: "TRIBUNA", predictedWinner: "team2" },
             ],
+            score: { team1: "(2)5", team2: "5(1)" }
         },
         {
             id: "16", team1: "TBD", team2: "TBD", loser1: "O", loser2: "P", round: 2, match: 16,

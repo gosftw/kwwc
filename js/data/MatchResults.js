@@ -24,10 +24,14 @@ export class MatchResults {
                 // "1": { winner: "ZAY", loser: "PRS", winnerGoals: 4, loserGoals: 2 },
                 "1": { winner: "PRS", loser: "DMG" },
                 "2": { winner: "POR", loser: "ULT" },
+                "3": { winner: "U3D", loser: "GDC" },
+                "7": { winner: "PAS", loser: "FLX" },
             },
             round2Losers: {
                 "9": { winner: "LCA", loser: "ZAY" },
                 "10": { winner: "MI7", loser: "GFC" },
+                "11": { winner: "BMR", loser: "ERA" },
+                "15": { winner: "FLC", loser: "ULC" },
             },
             lastChance: {},
             round16: {},
@@ -38,8 +42,8 @@ export class MatchResults {
         this.realResults = new Set([
             'round1.P', 'round1.A', 'round1.H', 'round1.N', 'round1.F', 'round1.C', 'round1.J', 'round1.D', // day 1
             'round1.E', 'round1.I', 'round1.M', 'round1.B', 'round1.K', 'round1.G', 'round1.L', 'round1.O', // day 2
-            'round2Winners.2', 'round2Winners.1',
-            'round2Losers.9', 'round2Losers.10', 
+            'round2Winners.2', 'round2Winners.1', 'round2Winners.3', 'round2Winners.7',
+            'round2Losers.9', 'round2Losers.10', 'round2Losers.11', 'round2Losers.15', 
             // Add more real result identifiers as needed
         ]);
     }

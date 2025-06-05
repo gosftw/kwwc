@@ -3,6 +3,23 @@
 import { initializeTournament } from './core/Tournament.js';
 import { setupHorizontalNavigation } from './ui/Navigation.js';
 
+// Function to scroll to a specific round in the tournament
+function scrollToRound(roundId) {
+    const tournamentContainer = document.getElementById('tournamentContainer');
+    const targetRound = document.getElementById(roundId);
+    
+    if (tournamentContainer && targetRound) {
+        const containerRect = tournamentContainer.getBoundingClientRect();
+        const targetRect = targetRound.getBoundingClientRect();
+        const scrollLeft = targetRect.left - containerRect.left + tournamentContainer.scrollLeft;
+        
+        tournamentContainer.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+        });
+    }
+}
+
 // Add horizontal navigation setup for desktop
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('tournamentContainer');
@@ -12,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (container && leftBtn && rightBtn) {
         setupHorizontalNavigation();
     }
+    setTimeout(() => {
+        scrollToRound('round2'); // or 'round2', 'lastChance', 'round16', etc.
+    }, 100);
 });
 
 // Initialize when DOM is fully loaded

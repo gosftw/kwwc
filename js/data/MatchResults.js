@@ -29,6 +29,7 @@ export class MatchResults {
                 "4": { winner: "ZTA", loser: "KRS" },
                 "6": { winner: "TFC", loser: "XBU" },
                 "8": { winner: "DDL", loser: "F2R" },
+                "5": { winner: "FUR", loser: "JFC" },
             },
             round2Losers: {
                 "9": { winner: "LCA", loser: "ZAY" },
@@ -36,6 +37,9 @@ export class MatchResults {
                 "11": { winner: "BMR", loser: "ERA" },
                 "15": { winner: "FLC", loser: "ULC" },
                 "12": { winner: "GR7", loser: "OUN" },
+                "13": { winner: "SXB", loser: "KNS" },
+                "14": { winner: "CHA", loser: "TRM" },
+                "16": { winner: "JXZ", loser: "MUR" },
             },
             lastChance: {},
             round16: {},
@@ -47,9 +51,9 @@ export class MatchResults {
             'round1.P', 'round1.A', 'round1.H', 'round1.N', 'round1.F', 'round1.C', 'round1.J', 'round1.D', // day 1
             'round1.E', 'round1.I', 'round1.M', 'round1.B', 'round1.K', 'round1.G', 'round1.L', 'round1.O', // day 2
             'round2Winners.2', 'round2Winners.1', 'round2Winners.3', 'round2Winners.7',
-            'round2Winners.4', 'round2Winners.6', 'round2Winners.8',
+            'round2Winners.4', 'round2Winners.6', 'round2Winners.8', 'round2Winners.5',
             'round2Losers.9', 'round2Losers.10', 'round2Losers.11', 'round2Losers.15',
-            'round2Losers.12', 
+            'round2Losers.12', 'round2Losers.13', 'round2Losers.14', 'round2Losers.16',
             // Add more real result identifiers as needed
         ]);
     }

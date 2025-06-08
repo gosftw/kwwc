@@ -54,8 +54,8 @@ function addRound16ShuffleButtons() {
     });
     
     // Assemble
-    shuffleContainer.appendChild(shuffleAdvancer1Button);
-    shuffleContainer.appendChild(shuffleAdvancer2Button);
+    // shuffleContainer.appendChild(shuffleAdvancer1Button);
+    // shuffleContainer.appendChild(shuffleAdvancer2Button);
     
     // Insert before matches container
     round16Section.insertBefore(shuffleContainer, matchesContainer);

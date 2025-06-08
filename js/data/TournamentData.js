@@ -393,14 +393,14 @@ export const tournamentStructure = {
     ],
     
     round16: [
-        { id: "R16-1", team1: "TBD", team2: "TBD", advancer1: "1", advancer2: "LC1", round: "R16", match: 1 },
-        { id: "R16-2", team1: "TBD", team2: "TBD", advancer1: "2", advancer2: "LC2", round: "R16", match: 2 },
-        { id: "R16-3", team1: "TBD", team2: "TBD", advancer1: "3", advancer2: "LC3", round: "R16", match: 3 },
-        { id: "R16-4", team1: "TBD", team2: "TBD", advancer1: "4", advancer2: "LC4", round: "R16", match: 4 },
-        { id: "R16-5", team1: "TBD", team2: "TBD", advancer1: "5", advancer2: "LC5", round: "R16", match: 5 },
-        { id: "R16-6", team1: "TBD", team2: "TBD", advancer1: "6", advancer2: "LC6", round: "R16", match: 6 },
-        { id: "R16-7", team1: "TBD", team2: "TBD", advancer1: "7", advancer2: "LC7", round: "R16", match: 7 },
-        { id: "R16-8", team1: "TBD", team2: "TBD", advancer1: "8", advancer2: "LC8", round: "R16", match: 8 }
+        { id: "R16-1", team1: "TBD", team2: "TBD", advancer1: "6", advancer2: "LC3", round: "R16", match: 1 },
+        { id: "R16-2", team1: "TBD", team2: "TBD", advancer1: "4", advancer2: "LC5", round: "R16", match: 2 },
+        { id: "R16-3", team1: "TBD", team2: "TBD", advancer1: "1", advancer2: "LC7", round: "R16", match: 3 },
+        { id: "R16-4", team1: "TBD", team2: "TBD", advancer1: "7", advancer2: "LC8", round: "R16", match: 4 },
+        { id: "R16-5", team1: "TBD", team2: "TBD", advancer1: "8", advancer2: "LC1", round: "R16", match: 5 },
+        { id: "R16-6", team1: "TBD", team2: "TBD", advancer1: "2", advancer2: "LC6", round: "R16", match: 6 },
+        { id: "R16-7", team1: "TBD", team2: "TBD", advancer1: "5", advancer2: "LC4", round: "R16", match: 7 },
+        { id: "R16-8", team1: "TBD", team2: "TBD", advancer1: "3", advancer2: "LC2", round: "R16", match: 8 }
     ],
     
     quarterFinals: [

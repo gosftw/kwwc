@@ -317,14 +317,79 @@ export const tournamentStructure = {
     ],
     
     lastChance: [
-        { id: "LC1", team1: "TBD", team2: "TBD", loser: "1", winner: "16", round: "LC", match: 1 },
-        { id: "LC2", team1: "TBD", team2: "TBD", loser: "2", winner: "15", round: "LC", match: 2 },
-        { id: "LC3", team1: "TBD", team2: "TBD", loser: "3", winner: "14", round: "LC", match: 3 },
-        { id: "LC4", team1: "TBD", team2: "TBD", loser: "4", winner: "13", round: "LC", match: 4 },
-        { id: "LC5", team1: "TBD", team2: "TBD", loser: "5", winner: "12", round: "LC", match: 5 },
-        { id: "LC6", team1: "TBD", team2: "TBD", loser: "6", winner: "11", round: "LC", match: 6 },
-        { id: "LC7", team1: "TBD", team2: "TBD", loser: "7", winner: "10", round: "LC", match: 7 },
-        { id: "LC8", team1: "TBD", team2: "TBD", loser: "8", winner: "9", round: "LC", match: 8 }
+        {
+            id: "LC1", team1: "TBD", team2: "TBD", loser: "1", winner: "16", round: "LC", match: 1,
+            matchTime: "2025-06-09T22:00:00+02:00",            
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+         },
+        {
+            id: "LC2", team1: "TBD", team2: "TBD", loser: "2", winner: "15", round: "LC", match: 2,
+            matchTime: "2025-06-08T20:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+        },
+        {
+            id: "LC3", team1: "TBD", team2: "TBD", loser: "3", winner: "14", round: "LC", match: 3,
+            matchTime: "2025-06-08T21:00:00+02:00",
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+        },
+        {
+            id: "LC4", team1: "TBD", team2: "TBD", loser: "4", winner: "13", round: "LC", match: 4,
+            matchTime: "2025-06-09T21:00:00+02:00",            
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+         },
+        {
+            id: "LC5", team1: "TBD", team2: "TBD", loser: "5", winner: "12", round: "LC", match: 5,
+            matchTime: "2025-06-09T19:00:00+02:00",            
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ]
+         },
+        {
+            id: "LC6", team1: "TBD", team2: "TBD", loser: "6", winner: "11", round: "LC", match: 6,
+            matchTime: "2025-06-08T19:00:00+02:00",            
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ]
+        },
+        {
+            id: "LC7", team1: "TBD", team2: "TBD", loser: "7", winner: "10", round: "LC", match: 7,
+            matchTime: "2025-06-08T22:00:00+02:00",            
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ]
+        },
+        {
+            id: "LC8", team1: "TBD", team2: "TBD", loser: "8", winner: "9", round: "LC", match: 8,
+            matchTime: "2025-06-09T20:00:00+02:00",            
+            predictions: [
+                { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ]
+            
+         }
     ],
     
     round16: [

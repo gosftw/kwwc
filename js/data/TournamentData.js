@@ -334,6 +334,8 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 // { mediaId: "TRIBUNA", predictedWinner: "team2" },
             ],
+            matchLink: "https://kingsleague.pro/api/v1/competition/matches/1881?live=false&competitionId=8",
+            score: { team1: "(1)4", team2: "4(2)" }
         },
         {
             id: "LC3", team1: "TBD", team2: "TBD", loser: "3", winner: "14", round: "LC", match: 3,
@@ -343,6 +345,7 @@ export const tournamentStructure = {
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 // { mediaId: "TRIBUNA", predictedWinner: "team2" },
             ],
+            score: { team1: 3, team2: 5 }
         },
         {
             id: "LC4", team1: "TBD", team2: "TBD", loser: "4", winner: "13", round: "LC", match: 4,
@@ -369,7 +372,8 @@ export const tournamentStructure = {
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 // { mediaId: "TRIBUNA", predictedWinner: "team2" },
-            ]
+            ],
+            score: { team1: 10, team2: 6 }
         },
         {
             id: "LC7", team1: "TBD", team2: "TBD", loser: "7", winner: "10", round: "LC", match: 7,
@@ -378,7 +382,8 @@ export const tournamentStructure = {
                 { mediaId: "DINASTIA", predictedWinner: "team1" },
                 // { mediaId: "TRATTORIA", predictedWinner: "team1" },
                 // { mediaId: "TRIBUNA", predictedWinner: "team2" },
-            ]
+            ],
+            score: { team1: 6, team2: 4 }
         },
         {
             id: "LC8", team1: "TBD", team2: "TBD", loser: "8", winner: "9", round: "LC", match: 8,

@@ -3,6 +3,7 @@
 import { getTeam } from '../data/TeamsData.js';
 import { getMatchIdWithCountdown, formatLocalMatchTime } from '../utils/TimeUtils.js';
 import { getMediaPredictions, mediaConfig } from '../data/MediaData.js';
+import { showMatchModal } from './MatchModal.js';
 
 // Helper function to create a team element
 function createTeamElement(teamId, isSelectable = true) {
@@ -125,6 +126,15 @@ function createMatchElement(match) {
     const vsElement = document.createElement('span');
     vsElement.className = 'vs';
     vsElement.textContent = scoreElement ? '' : 'VS';
+
+    // Add click event to show modal
+    // if (!scoreElement) { // Only add click if it's showing "VS" text
+    //     vsElement.style.cursor = 'pointer';
+    //     vsElement.addEventListener('click', function(event) {
+    //         event.stopPropagation(); // Prevent event bubbling
+    //         showMatchModal(match);
+    //     });
+    // }
     
     // Second team
     const team2Element = createTeamElement(match.team2, match.team1 !== 'TBD' && match.team2 !== 'TBD');

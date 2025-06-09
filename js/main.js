@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setupHorizontalNavigation();
     }
     setTimeout(() => {
-        scrollToRound('round2'); // or 'round2', 'lastChance', 'round16', etc.
+        scrollToRound('lastChance'); // or 'round2', 'lastChance', 'round16', etc.
     }, 100);
 });
 

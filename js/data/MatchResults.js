@@ -41,7 +41,12 @@ export class MatchResults {
                 "14": { winner: "CHA", loser: "TRM" },
                 "16": { winner: "JXZ", loser: "MUR" },
             },
-            lastChance: {},
+            lastChance: {
+                "LC2": { winner: "FLC", loser: "ULT" },
+                "LC3": { winner: "CHA", loser: "GDC" },
+                "LC6": { winner: "XBU", loser: "BMR" },
+                "LC7": { winner: "FLX", loser: "MI7" },
+            },
             round16: {},
             quarterFinals: {},
             semiFinals: {},
@@ -54,6 +59,7 @@ export class MatchResults {
             'round2Winners.4', 'round2Winners.6', 'round2Winners.8', 'round2Winners.5',
             'round2Losers.9', 'round2Losers.10', 'round2Losers.11', 'round2Losers.15',
             'round2Losers.12', 'round2Losers.13', 'round2Losers.14', 'round2Losers.16',
+            "lastChance.LC2", "lastChance.LC3", "lastChance.LC6", "lastChance.LC7",
             // Add more real result identifiers as needed
         ]);
     }

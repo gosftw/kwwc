@@ -401,21 +401,105 @@ export const tournamentStructure = {
     ],
     
     round16: [
-        { id: "R16-1", team1: "TBD", team2: "TBD", advancer1: "6", advancer2: "LC3", round: "R16", match: 1 },
-        { id: "R16-2", team1: "TBD", team2: "TBD", advancer1: "4", advancer2: "LC5", round: "R16", match: 2 },
-        { id: "R16-3", team1: "TBD", team2: "TBD", advancer1: "1", advancer2: "LC7", round: "R16", match: 3 },
-        { id: "R16-4", team1: "TBD", team2: "TBD", advancer1: "7", advancer2: "LC8", round: "R16", match: 4 },
-        { id: "R16-5", team1: "TBD", team2: "TBD", advancer1: "8", advancer2: "LC1", round: "R16", match: 5 },
-        { id: "R16-6", team1: "TBD", team2: "TBD", advancer1: "2", advancer2: "LC6", round: "R16", match: 6 },
-        { id: "R16-7", team1: "TBD", team2: "TBD", advancer1: "5", advancer2: "LC4", round: "R16", match: 7 },
-        { id: "R16-8", team1: "TBD", team2: "TBD", advancer1: "3", advancer2: "LC2", round: "R16", match: 8 }
+        {
+            id: "R16-1", team1: "TBD", team2: "TBD", advancer1: "6", advancer2: "LC3", round: "R16", match: 1,
+            matchTime: "2025-06-10T20:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+            score: { team1: 4, team2: 2 }
+         },
+        {
+            id: "R16-2", team1: "TBD", team2: "TBD", advancer1: "4", advancer2: "LC5", round: "R16", match: 2,
+            matchTime: "2025-06-10T19:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team1" },
+            ],
+            score: { team1: 6, team2: 7 }
+         },
+        {
+            id: "R16-3", team1: "TBD", team2: "TBD", advancer1: "1", advancer2: "LC7", round: "R16", match: 3,
+            matchTime: "2025-06-10T21:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+            score: { team1: 3, team2: 5 }
+         },
+        {
+            id: "R16-4", team1: "TBD", team2: "TBD", advancer1: "7", advancer2: "LC8", round: "R16", match: 4,
+            matchTime: "2025-06-10T22:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team1" },
+            ],
+            score: { team1: 7, team2: 3 }
+         },
+        {
+            id: "R16-5", team1: "TBD", team2: "TBD", advancer1: "8", advancer2: "LC1", round: "R16", match: 5,
+            matchTime: "2025-06-11T21:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+            score: { team1: 7, team2: 6 }
+         },
+        {
+            id: "R16-6", team1: "TBD", team2: "TBD", advancer1: "2", advancer2: "LC6", round: "R16", match: 6,
+            matchTime: "2025-06-11T20:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team1" },
+            ],
+            score: { team1: 8, team2: 7 }
+         },
+        {
+            id: "R16-7", team1: "TBD", team2: "TBD", advancer1: "5", advancer2: "LC4", round: "R16", match: 7,
+            matchTime: "2025-06-11T22:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team1" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team2" },
+            ],
+            score: { team1: 9, team2: 6 }
+         },
+        {
+            id: "R16-8", team1: "TBD", team2: "TBD", advancer1: "3", advancer2: "LC2", round: "R16", match: 8,
+            matchTime: "2025-06-11T19:00:00+02:00",
+            predictions: [
+                // { mediaId: "DINASTIA", predictedWinner: "team2" },
+                // // { mediaId: "TRATTORIA", predictedWinner: "team1" },
+                // { mediaId: "TRIBUNA", predictedWinner: "team1" },
+            ],
+            score: { team1: 7, team2: 2 }
+         }
     ],
     
     quarterFinals: [
-        { id: "QF1", team1: "TBD", team2: "TBD", winner1: "R16-1", winner2: "R16-2", round: "QF", match: 1 },
-        { id: "QF2", team1: "TBD", team2: "TBD", winner1: "R16-3", winner2: "R16-4", round: "QF", match: 2 },
-        { id: "QF3", team1: "TBD", team2: "TBD", winner1: "R16-5", winner2: "R16-6", round: "QF", match: 3 },
-        { id: "QF4", team1: "TBD", team2: "TBD", winner1: "R16-7", winner2: "R16-8", round: "QF", match: 4 }
+        {
+            id: "QF1", team1: "TBD", team2: "TBD", winner1: "R16-1", winner2: "R16-2", round: "QF", match: 1,
+            matchTime: "2025-06-12T19:00:00+02:00",
+        },
+        {
+            id: "QF2", team1: "TBD", team2: "TBD", winner1: "R16-3", winner2: "R16-4", round: "QF", match: 2,
+            matchTime: "2025-06-12T20:00:00+02:00",
+        },
+        {
+            id: "QF3", team1: "TBD", team2: "TBD", winner1: "R16-5", winner2: "R16-6", round: "QF", match: 3,
+            matchTime: "2025-06-12T21:00:00+02:00",
+        },
+        {
+            id: "QF4", team1: "TBD", team2: "TBD", winner1: "R16-7", winner2: "R16-8", round: "QF", match: 4,
+            matchTime: "2025-06-12T22:00:00+02:00",
+        }
     ],
     
     semiFinals: [

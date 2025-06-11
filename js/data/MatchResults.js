@@ -51,7 +51,16 @@ export class MatchResults {
                 "LC5": { winner: "GR7", loser: "JFC" },
                 "LC8": { winner: "F2R", loser: "LCA" },
             },
-            round16: {},
+            round16: {
+                "R16-1": { winner: "TFC", loser: "CHA" },
+                "R16-2": { winner: "GR7", loser: "ZTA" },
+                "R16-3": { winner: "FLX", loser: "PRS" },
+                "R16-4": { winner: "PAS", loser: "F2R" },
+                "R16-5": { winner: "DDL", loser: "DMG" },
+                "R16-6": { winner: "POR", loser: "XBU" },
+                "R16-7": { winner: "FUR", loser: "KRS" },
+                "R16-8": { winner: "U3D", loser: "FLC" },
+            },
             quarterFinals: {},
             semiFinals: {},
             final: {}
@@ -65,6 +74,8 @@ export class MatchResults {
             'round2Losers.12', 'round2Losers.13', 'round2Losers.14', 'round2Losers.16',
             "lastChance.LC2", "lastChance.LC3", "lastChance.LC6", "lastChance.LC7",
             "lastChance.LC1", "lastChance.LC4", "lastChance.LC5", "lastChance.LC8",
+            'round16.R16-1', 'round16.R16-2', 'round16.R16-3', 'round16.R16-4',
+            'round16.R16-5', 'round16.R16-6', 'round16.R16-7', 'round16.R16-8',
             // Add more real result identifiers as needed
         ]);
     }

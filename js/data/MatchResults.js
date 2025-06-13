@@ -61,8 +61,16 @@ export class MatchResults {
                 "R16-7": { winner: "FUR", loser: "KRS" },
                 "R16-8": { winner: "U3D", loser: "FLC" },
             },
-            quarterFinals: {},
-            semiFinals: {},
+            quarterFinals: {
+                "QF1": { winner: "TFC", loser: "GR7" },
+                "QF2": { winner: "FLX", loser: "PAS" },
+                "QF3": { winner: "POR", loser: "DDL" },
+                "QF4": { winner: "FUR", loser: "U3D" },
+            },
+            semiFinals: {
+                "SF1": { winner: "TFC", loser: "FLX" },
+                "SF2": { winner: "POR", loser: "FUR" },
+            },
             final: {}
         };
         this.realResults = new Set([
@@ -76,6 +84,8 @@ export class MatchResults {
             "lastChance.LC1", "lastChance.LC4", "lastChance.LC5", "lastChance.LC8",
             'round16.R16-1', 'round16.R16-2', 'round16.R16-3', 'round16.R16-4',
             'round16.R16-5', 'round16.R16-6', 'round16.R16-7', 'round16.R16-8',
+            'quarterFinals.QF1', 'quarterFinals.QF2', 'quarterFinals.QF3', 'quarterFinals.QF4',
+            'semiFinals.SF1', 'semiFinals.SF2',
             // Add more real result identifiers as needed
         ]);
     }

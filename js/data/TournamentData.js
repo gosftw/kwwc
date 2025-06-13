@@ -487,24 +487,34 @@ export const tournamentStructure = {
         {
             id: "QF1", team1: "TBD", team2: "TBD", winner1: "R16-1", winner2: "R16-2", round: "QF", match: 1,
             matchTime: "2025-06-12T19:00:00+02:00",
+            score: { team1: 5, team2: 4 }
         },
         {
             id: "QF2", team1: "TBD", team2: "TBD", winner1: "R16-3", winner2: "R16-4", round: "QF", match: 2,
             matchTime: "2025-06-12T20:00:00+02:00",
+            score: { team1: 5, team2: 4 }
         },
         {
             id: "QF3", team1: "TBD", team2: "TBD", winner1: "R16-5", winner2: "R16-6", round: "QF", match: 3,
             matchTime: "2025-06-12T21:00:00+02:00",
+            score: { team1: 5, team2: 6 }
         },
         {
             id: "QF4", team1: "TBD", team2: "TBD", winner1: "R16-7", winner2: "R16-8", round: "QF", match: 4,
             matchTime: "2025-06-12T22:00:00+02:00",
+            score: { team1: 8, team2: 1 }
         }
     ],
     
     semiFinals: [
-        { id: "SF1", team1: "TBD", team2: "TBD", winner1: "QF1", winner2: "QF2", round: "SF", match: 1 },
-        { id: "SF2", team1: "TBD", team2: "TBD", winner1: "QF3", winner2: "QF4", round: "SF", match: 2 }
+        {
+            id: "SF1", team1: "TBD", team2: "TBD", winner1: "QF1", winner2: "QF2", round: "SF", match: 1,
+            score: { team1: 6, team2: 5 }
+        },
+        {
+            id: "SF2", team1: "TBD", team2: "TBD", winner1: "QF3", winner2: "QF4", round: "SF", match: 2,
+            score: { team1: 5, team2: 4 }
+        }
     ],
     
     final: [
